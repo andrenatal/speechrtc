@@ -1,0 +1,32 @@
+2013-12-06 01:12:42|{"status":0,"id":"","hypotheses":[{"utterance":"restaurants","confidence":0.81630456}]}|Mozilla/5.0 (Mobile; rv:28.0) Gecko/28.0 Firefox/28.0|en-us
+2013-12-06 03:08:45|{"status":0,"id":"","hypotheses":[{"utterance":"Burger King","confidence":0.93787766}]}|Mozilla/5.0 (Mobile; rv:28.0) Gecko/28.0 Firefox/28.0|en-us
+2013-12-06 01:25:53|{"status":5,"id":"","hypotheses":[]}|Mozilla/5.0 (Android; Mobile; rv:26.0) Gecko/26.0 Firefox/26.0|pt-br
+2013-12-06 01:26:11|{"status":0,"id":"","hypotheses":[{"utterance":"restaurante","confidence":0.43611145}]}|Mozilla/5.0 (Android; Mobile; rv:26.0) Gecko/26.0 Firefox/26.0|pt-br
+2013-12-06 01:30:12|{"status":5,"id":"","hypotheses":[]}|Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0|en-us
+2013-12-06 01:30:50|{"status":0,"id":"","hypotheses":[{"utterance":"estádio do morumbi","confidence":0.78378886}]}|Mozilla/5.0 (Android; Mobile; rv:26.0) Gecko/26.0 Firefox/26.0|pt-br
+2013-12-06 13:40:33||Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0|en-us
+2013-12-06 13:42:05|{"status":5,"id":"","hypotheses":[]}|Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0|en-us
+2013-12-06 13:51:27|{"status":5,"id":"","hypotheses":[]}|Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0|en-us
+2013-12-06 13:51:39|{"status":5,"id":"","hypotheses":[]}|Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0|en-us
+2013-12-06 13:51:44||Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0|en-us
+2013-12-06 13:53:55||Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0|en-us
+2013-12-06 13:54:00|{"status":5,"id":"","hypotheses":[]}|Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0|en-us
+2013-12-06 13:56:16||Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0|en-us
+2013-12-06 13:57:49||Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0|en-us
+2013-12-06 13:57:54||Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0|en-us
+2013-12-06 13:57:57||Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0|en-us
+2013-12-06 13:58:08|{"status":5,"id":"","hypotheses":[]}|Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0|en-us
+2013-12-06 13:59:39||Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0|en-us
+2013-12-06 13:59:50|{"status":5,"id":"","hypotheses":[]}|Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0|en-us
+2013-12-06 14:00:28||Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0|en-us
+2013-12-06 14:00:56|{"status":5,"id":"","hypotheses":[]}|Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0|en-us
+2013-12-06 14:01:06||Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0|en-us
+2013-12-06 14:01:56||Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0|en-us
+2013-12-06 14:02:07|{"status":5,"id":"","hypotheses":[]}|Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0|en-us
+2013-12-06 14:03:01||Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0|en-us
+2013-12-06 14:04:45|{"status":5,"id":"","hypotheses":[]}|Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0|en-us
+2013-12-06 14:22:57||Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0|en-us
+2013-12-06 14:23:54|{"status":5,"id":"","hypotheses":[]}|Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0|en-us
+2013-12-06 14:24:25||Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0|en-us
+2013-12-06 17:19:48||Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0|en-us
+2013-12-06 17:29:14||Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0|en-us
