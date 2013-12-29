@@ -3064,7 +3064,7 @@ var OggDemuxer = AV.Demuxer.extend(function() {
     };
     
     this.prototype.readChunk = function() {
-        console.log('readchunk no ogg');
+       //console.log('readchunk no ogg');
         while (this._stream.available(BUFFER_SIZE)) {
             Module.HEAPU8.set(this._stream.readBuffer(BUFFER_SIZE).data, this.buf);
             AVOggRead(this.ogg, this.buf, BUFFER_SIZE, this.callback);

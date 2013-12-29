@@ -3194,10 +3194,10 @@ if (shouldRunNow) {
     }
     
     this.prototype.readChunk = function() {
-        console.log('readchunk no opus');
+    //    console.log('readchunk no opus');
         if (!this.stream.available(1))
         {
-            console.log('stream not avail' + this.stream);
+            //console.log('stream not avail' + this.stream);
             throw new AV.UnderflowError();
         }
         
@@ -3240,7 +3240,7 @@ if (shouldRunNow) {
         readPacket: function(packet) {
             var tag = packet.subarray(0, 8);
             if (String.fromCharCode.apply(String, tag) === "OpusTags")
-                console.log('tag!');
+                console.log('tag!OpusTags');
             else
                 this.emit('data', new AV.Buffer(packet));
         }

@@ -48,41 +48,48 @@ bs.on('connection', function(client){
       {
 
           stream.on('data' , function (buffer){
-             // console.log('data...' + buffer);
-
+              console.log('data rcvd');
               var avbuffer = new AV.Buffer(buffer);
-              //console.log(avbuffer);
               var asset = new AV.Asset.fromBuffer(avbuffer);
 
               asset.on('buffer', function(perc) {
-                  //list.push(new require('av').Buffer(buffer));
-                  console.log('onbuffer:' + perc);
+                  //console.log('onbuffer:' + perc);
               });
               asset.on('data', function(bufferdecoded) {
-                  //list.push(new require('av').Buffer(buffer));
-                  console.log('data:' + bufferdecoded);
-              });
-              asset.on('format', function(fmt) {
-                  //list.push(new require('av').Buffer(buffer));
-                  console.log('format:' + fmt);
+                //  console.log('data aqui!!' + bufferdecoded.length);
+
+                  var buff = new Buffer( new Uint8Array(bufferdecoded));
+
+                  fs.appendFile('audio.raw', buff, function (err) {
+                      if (err) throw err;
+                      console.log('The "data to append" was appended to file!');
+                  });
+
               });
               asset.on('decodeStart', function() {
-                  //list.push(new require('av').Buffer(buffer));
-                  console.log('decodeStart:' + bufferdecoded);
+                  console.log('decodeStart!!!!!!!!!!!!!!!' );
               });
               asset.on('error', function(err) {
-                  //list.push(new require('av').Buffer(buffer));
                   console.log('err:' + err);
               });
 
               asset.demuxer = new AV.OggDemuxer(asset, avbuffer);
               asset.decoder = new OpusDecoder(asset.demuxer , 'opus');
 
-              asset.decoder.decode();
-                //asset.start();
-             // console.log(asset.demuxer);
-             // console.log(asset.decoder);
-              //asset.start();
+               // METODO DE EXTRACT1
+//             asset.decoder.decode();
+
+              // METODO DE EXTRACT2
+
+              /*
+              asset.decodeToBuffer(function(buffer) {
+                  console.log('buffer is now a Float32Array containing the entire decoded audio file');
+              });
+*/
+
+              // METODO DE EXTRACT3
+              asset.start();
+
 
           });
 
