@@ -5,6 +5,8 @@ var AV = require('av');
 // Serve client side statically
 var express = require('express');
 var app = express();
+var net = require('net'), events = require('events'), util = require('util');
+
 app.use(express.static(__dirname + '/public'));
 
 var server = http.createServer(app);
@@ -12,17 +14,13 @@ var server = http.createServer(app);
 // Start Binary.js server
 var BinaryServer = require('binaryjs').BinaryServer;
 var bs = BinaryServer({server: server});
-var vm = require("vm");
-var _opusdec = null;
 
-eval( fs.readFileSync("ogg.js","utf8"));
-eval( fs.readFileSync("opus.js","utf8"));
-eval( fs.readFileSync("vorbis.js","utf8"));
 
 // Wait for new user connections
 bs.on('connection', function(client){
   var randomnumber;
-
+    var server = new Connection({ port: 8888, host: "localhost"});
+    console.log('stream');
   client.on('stream', function(stream, meta){
 
       if (meta.name == "start")
@@ -36,72 +34,58 @@ bs.on('connection', function(client){
           var exec = require('child_process').exec;
           var child;
           console.log('ended: ' + randomnumber);
+
+          server.socket.write("END", function() {
+              console.log('flushed');
+          });
+
+          /*
           child = exec("php speechserver/convert.php speechserver/audios/" + randomnumber + " en-US", function (error, stdout, stderr) {
               sys.print('stdout: ' + stdout);
+              // manda pro usuario
               stream.write(stdout);
               if (error !== null) {
                   console.log('exec error: ' + error);
               }
-          });
+          }); */
       }
       else
       {
-
           stream.on('data' , function (buffer){
-              console.log('data rcvd');
-              var avbuffer = new AV.Buffer(buffer);
-              var asset = new AV.Asset.fromBuffer(avbuffer);
-
-              asset.on('buffer', function(perc) {
-                  //console.log('onbuffer:' + perc);
+              server.socket.write(buffer, function() {
+                  console.log('data rcvd & sent');
               });
-              asset.on('data', function(bufferdecoded) {
-                //  console.log('data aqui!!' + bufferdecoded.length);
-
-                  var buff = new Buffer( new Uint8Array(bufferdecoded));
-
-                  fs.appendFile('audio.raw', buff, function (err) {
-                      if (err) throw err;
-                      console.log('The "data to append" was appended to file!');
-                  });
-
-              });
-              asset.on('decodeStart', function() {
-                  console.log('decodeStart!!!!!!!!!!!!!!!' );
-              });
-              asset.on('error', function(err) {
-                  console.log('err:' + err);
-              });
-
-              asset.demuxer = new AV.OggDemuxer(asset, avbuffer);
-              asset.decoder = new OpusDecoder(asset.demuxer , 'opus');
-
-               // METODO DE EXTRACT1
-//             asset.decoder.decode();
-
-              // METODO DE EXTRACT2
-
-              /*
-              asset.decodeToBuffer(function(buffer) {
-                  console.log('buffer is now a Float32Array containing the entire decoded audio file');
-              });
-*/
-
-              // METODO DE EXTRACT3
-              asset.start();
-
-
           });
-
       }
-
-
-
   });
 });
 
 
+function Connection(settings) {
+    events.EventEmitter.call(this);
+    var self = this;
 
+    this.socket = net.createConnection(settings.port, settings.host);
+    this.socket.setNoDelay(true);
+    this.status = 'connecting';
+
+    this.socket.on('connect', function() {
+        console.log('connected');
+        console.log('writing');
+
+    });
+
+    this.socket.on('data', function(chunk) {
+        console.log('got data: ' + chunk);
+
+    });
+
+
+    this.socket.on('error', function() {
+        console.log('error socket' );
+
+    });
+}
 
 server.listen(9000);
 console.log('SpeechRTC server started on port 9000');

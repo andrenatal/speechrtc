@@ -13,7 +13,7 @@ function SpeechRTC(lang,success,error)
     this.status = "offline";
     this.lang = lang;
 
-    var client = new BinaryClient('ws://elementaryos:9000');
+    var client = new BinaryClient('ws://192.168.1.115:9000');
     client.on('error', function(error){
         if (SpeechRTC.onConnectionError) SpeechRTC.onConnectionError(error);
         return;
@@ -53,7 +53,7 @@ function SpeechRTC(lang,success,error)
         }
         wsstream = client.send("0", {name: "start", size: 0});
         mediaRecorder = new MediaRecorder(_stream);
-        mediaRecorder.start(2000);
+        mediaRecorder.start(1000);
         mediaRecorder.ondataavailable = function(e) {
             wsstream = client.send(e.data, {name: "audio", size: e.data.size});
         };
