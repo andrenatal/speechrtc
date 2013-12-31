@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b78ca35-cd6b-4d5a-9c04-61b32e7b4e45" name="Default" comment="Clean">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/voiceserver/dist/Debug/GNU-Linux-x86/voiceserver" afterPath="$PROJECT_DIR$/voiceserver/dist/Debug/GNU-Linux-x86/voiceserver" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/voiceserver/nbproject/Makefile-Debug.mk" afterPath="$PROJECT_DIR$/voiceserver/nbproject/Makefile-Debug.mk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/voiceserver/nbproject/configurations.xml" afterPath="$PROJECT_DIR$/voiceserver/nbproject/configurations.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/voiceserver/newmain.cpp" afterPath="$PROJECT_DIR$/voiceserver/newmain.cpp" />
+    <list default="true" id="0b78ca35-cd6b-4d5a-9c04-61b32e7b4e45" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="speechrtc.iws" />
@@ -296,7 +292,11 @@
       <created>1388456427285</created>
       <updated>1388456427285</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Pocketsphinx integrated">
+      <created>1388519739367</created>
+      <updated>1388519739367</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -376,7 +376,8 @@
     <MESSAGE value="libopus e libogg funcionando" />
     <MESSAGE value="OggStream add" />
     <MESSAGE value="Clean" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clean" />
+    <MESSAGE value="Pocketsphinx integrated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pocketsphinx integrated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
