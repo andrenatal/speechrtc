@@ -35,7 +35,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/server.o
+	${OBJECTDIR}/_ext/931244554/OggStream.o \
+	${OBJECTDIR}/_ext/931244554/newmain.o
 
 
 # C Compiler Flags
@@ -60,12 +61,17 @@ LDLIBSOPTIONS=-L/usr/local/lib
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/voiceserver: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/voiceserver ${OBJECTFILES} ${LDLIBSOPTIONS} -lpthread -lopus
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/voiceserver ${OBJECTFILES} ${LDLIBSOPTIONS} -lpthread -lopus -logg
 
-${OBJECTDIR}/server.o: server.c 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/_ext/931244554/OggStream.o: /var/www/speechrtc/voiceserver/OggStream.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/931244554
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I/usr/local/lib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/server.o server.c
+	$(COMPILE.cc) -g -I/usr/local/lib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/931244554/OggStream.o /var/www/speechrtc/voiceserver/OggStream.cpp
+
+${OBJECTDIR}/_ext/931244554/newmain.o: /var/www/speechrtc/voiceserver/newmain.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/931244554
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/local/lib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/931244554/newmain.o /var/www/speechrtc/voiceserver/newmain.cpp
 
 # Subprojects
 .build-subprojects:

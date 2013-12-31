@@ -1,32 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b78ca35-cd6b-4d5a-9c04-61b32e7b4e45" name="Default" comment="Add voiceserver">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/voiceserver/build/Debug/GNU-Linux-x86/server.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/voiceserver/dist/Debug/GNU-Linux-x86/voiceserver" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/voiceserver/.dep.inc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/voiceserver/nbproject/Makefile-Debug.mk" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/voiceserver/nbproject/Makefile-Release.mk" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/voiceserver/nbproject/Makefile-impl.mk" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/voiceserver/nbproject/Makefile-variables.mk" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/voiceserver/nbproject/private/Makefile-variables.mk" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/voiceserver/Makefile" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/voiceserver/nbproject/Package-Debug.bash" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/voiceserver/nbproject/Package-Release.bash" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/voiceserver/nbproject/configurations.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/voiceserver/nbproject/private/configurations.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/voiceserver/nbproject/private/launcher.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/voiceserver/opus_interface.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/voiceserver/opus_interface.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/voiceserver/nbproject/private/private.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/voiceserver/nbproject/project.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/voiceserver/resample_by_2_internal.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/voiceserver/server.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/voiceserver/signal_processing_library.h" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/ogg.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/opus.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/vorbis.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/server.js" afterPath="$PROJECT_DIR$/server/server.js" />
+    <list default="true" id="0b78ca35-cd6b-4d5a-9c04-61b32e7b4e45" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/voiceserver/server.c" afterPath="$PROJECT_DIR$/voiceserver/server.cpp.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/voiceserver/build/Debug/GNU-Linux-x86/server.o" afterPath="$PROJECT_DIR$/voiceserver/build/Debug/GNU-Linux-x86/server.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/voiceserver/dist/Debug/GNU-Linux-x86/voiceserver" afterPath="$PROJECT_DIR$/voiceserver/dist/Debug/GNU-Linux-x86/voiceserver" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/voiceserver/nbproject/Makefile-Debug.mk" afterPath="$PROJECT_DIR$/voiceserver/nbproject/Makefile-Debug.mk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/voiceserver/nbproject/Makefile-Release.mk" afterPath="$PROJECT_DIR$/voiceserver/nbproject/Makefile-Release.mk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/voiceserver/nbproject/configurations.xml" afterPath="$PROJECT_DIR$/voiceserver/nbproject/configurations.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/voiceserver/nbproject/project.xml" afterPath="$PROJECT_DIR$/voiceserver/nbproject/project.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/speechrtc.js" afterPath="$PROJECT_DIR$/client/js/speechrtc.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -54,8 +36,28 @@
       <file leaf-file-name="server.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="13" selection-start="1728" selection-end="1728" vertical-scroll-proportion="0.0" vertical-offset="730" max-vertical-offset="1746">
+            <state line="57" column="13" selection-start="1728" selection-end="1728" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1746">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/js/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="25" selection-start="709" selection-end="709" vertical-scroll-proportion="0.0" vertical-offset="517" max-vertical-offset="828">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="binary.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/js/binary.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="7" selection-start="374" selection-end="374" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="27810">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -63,7 +65,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="25" selection-start="123" selection-end="123" vertical-scroll-proportion="-2.5555556" vertical-offset="3" max-vertical-offset="342">
+            <state line="5" column="23" selection-start="165" selection-end="165" vertical-scroll-proportion="-3.3333333" vertical-offset="0" max-vertical-offset="342">
               <folding />
             </state>
           </provider>
@@ -72,7 +74,7 @@
       <file leaf-file-name="speechrtc.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/js/speechrtc.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="32" selection-start="1507" selection-end="1507" vertical-scroll-proportion="0.6784566" vertical-offset="797" max-vertical-offset="1872">
+            <state line="15" column="53" selection-start="278" selection-end="278" vertical-scroll-proportion="0.5209003" vertical-offset="108" max-vertical-offset="1872">
               <folding />
             </state>
           </provider>
@@ -154,6 +156,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="speechrtc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="speechrtc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="speechrtc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="speechrtc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="speechrtc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -268,7 +302,11 @@
       <created>1388342270361</created>
       <updated>1388342270361</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add voiceserver">
+      <created>1388434737411</created>
+      <updated>1388434737411</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -306,7 +344,7 @@
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35071576" sideWeight="0.58347106" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40191388" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4016529" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -344,7 +382,8 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="Aurora.js before remove" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aurora.js before remove" />
+    <MESSAGE value="Add voiceserver" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add voiceserver" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -413,13 +452,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="13" selection-start="107" selection-end="107" vertical-scroll-proportion="0.0" vertical-offset="502" max-vertical-offset="828">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/speechserver/speech.pl">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="504">
@@ -462,16 +494,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/binary.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="7" selection-start="374" selection-end="374" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="27810">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="25" selection-start="709" selection-end="709" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="828">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="25" selection-start="123" selection-end="123" vertical-scroll-proportion="-2.5555556" vertical-offset="3" max-vertical-offset="342">
+        <state line="5" column="23" selection-start="165" selection-end="165" vertical-scroll-proportion="-3.3333333" vertical-offset="0" max-vertical-offset="342">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/speechrtc.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="32" selection-start="1507" selection-end="1507" vertical-scroll-proportion="0.6784566" vertical-offset="797" max-vertical-offset="1872">
+        <state line="15" column="53" selection-start="278" selection-end="278" vertical-scroll-proportion="0.5209003" vertical-offset="108" max-vertical-offset="1872">
           <folding />
         </state>
       </provider>

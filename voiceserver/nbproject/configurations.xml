@@ -16,7 +16,8 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>server.c</itemPath>
+      <itemPath>/var/www/speechrtc/voiceserver/OggStream.cpp</itemPath>
+      <itemPath>/var/www/speechrtc/voiceserver/newmain.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -44,11 +45,16 @@
             <pElem>/usr/local/lib</pElem>
           </incDir>
         </cTool>
+        <ccTool>
+          <incDir>
+            <pElem>/usr/local/lib</pElem>
+          </incDir>
+        </ccTool>
         <linkerTool>
           <linkerAddLib>
             <pElem>/usr/local/lib</pElem>
           </linkerAddLib>
-          <commandLine>-lpthread -lopus</commandLine>
+          <commandLine>-lpthread -lopus -logg</commandLine>
         </linkerTool>
       </compileType>
       <item path="/home/andre/NetBeansProjects/voiceserver/opus_interface.h"
@@ -71,7 +77,15 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="server.c" ex="false" tool="0" flavor2="0">
+      <item path="/var/www/speechrtc/voiceserver/OggStream.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/var/www/speechrtc/voiceserver/newmain.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -114,7 +128,15 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="server.c" ex="false" tool="0" flavor2="0">
+      <item path="/var/www/speechrtc/voiceserver/OggStream.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/var/www/speechrtc/voiceserver/newmain.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
     </conf>
   </confs>

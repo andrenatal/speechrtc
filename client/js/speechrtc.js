@@ -13,7 +13,7 @@ function SpeechRTC(lang,success,error)
     this.status = "offline";
     this.lang = lang;
 
-    var client = new BinaryClient('ws://192.168.1.115:9000');
+    var client = new BinaryClient('ws://192.168.1.133:9000');
     client.on('error', function(error){
         if (SpeechRTC.onConnectionError) SpeechRTC.onConnectionError(error);
         return;
