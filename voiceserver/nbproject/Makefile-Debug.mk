@@ -61,17 +61,17 @@ LDLIBSOPTIONS=-L/usr/local/lib
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/voiceserver: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/voiceserver ${OBJECTFILES} ${LDLIBSOPTIONS} -lpthread -lopus -logg
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/voiceserver ${OBJECTFILES} ${LDLIBSOPTIONS} -lpthread -lopus -logg -lpocketsphinx -lsphinxbase
 
 ${OBJECTDIR}/_ext/931244554/OggStream.o: /var/www/speechrtc/voiceserver/OggStream.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/931244554
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/lib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/931244554/OggStream.o /var/www/speechrtc/voiceserver/OggStream.cpp
+	$(COMPILE.cc) -g -I/usr/local/lib -I/usr/local/include -I/usr/local/include/pocketsphinx -I/usr/local/include/sphinxbase -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/931244554/OggStream.o /var/www/speechrtc/voiceserver/OggStream.cpp
 
 ${OBJECTDIR}/_ext/931244554/newmain.o: /var/www/speechrtc/voiceserver/newmain.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/931244554
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/lib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/931244554/newmain.o /var/www/speechrtc/voiceserver/newmain.cpp
+	$(COMPILE.cc) -g -I/usr/local/lib -I/usr/local/include -I/usr/local/include/pocketsphinx -I/usr/local/include/sphinxbase -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/931244554/newmain.o /var/www/speechrtc/voiceserver/newmain.cpp
 
 # Subprojects
 .build-subprojects:

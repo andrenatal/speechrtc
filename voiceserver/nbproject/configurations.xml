@@ -48,13 +48,16 @@
         <ccTool>
           <incDir>
             <pElem>/usr/local/lib</pElem>
+            <pElem>/usr/local/include</pElem>
+            <pElem>/usr/local/include/pocketsphinx</pElem>
+            <pElem>/usr/local/include/sphinxbase</pElem>
           </incDir>
         </ccTool>
         <linkerTool>
           <linkerAddLib>
             <pElem>/usr/local/lib</pElem>
           </linkerAddLib>
-          <commandLine>-lpthread -lopus -logg</commandLine>
+          <commandLine>-lpthread -lopus -logg -lpocketsphinx -lsphinxbase</commandLine>
         </linkerTool>
       </compileType>
       <item path="/home/andre/NetBeansProjects/voiceserver/opus_interface.h"

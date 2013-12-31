@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b78ca35-cd6b-4d5a-9c04-61b32e7b4e45" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/voiceserver/newmain.cpp" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/voiceserver/opus_interface.c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/voiceserver/opus_interface.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/voiceserver/resample_by_2_internal.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/voiceserver/server.cpp.c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/voiceserver/signal_processing_library.h" afterPath="" />
+    <list default="true" id="0b78ca35-cd6b-4d5a-9c04-61b32e7b4e45" name="Default" comment="Clean">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/voiceserver/dist/Debug/GNU-Linux-x86/voiceserver" afterPath="$PROJECT_DIR$/voiceserver/dist/Debug/GNU-Linux-x86/voiceserver" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/voiceserver/nbproject/Makefile-Debug.mk" afterPath="$PROJECT_DIR$/voiceserver/nbproject/Makefile-Debug.mk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/voiceserver/nbproject/configurations.xml" afterPath="$PROJECT_DIR$/voiceserver/nbproject/configurations.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/voiceserver/newmain.cpp" afterPath="$PROJECT_DIR$/voiceserver/newmain.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="speechrtc.iws" />
@@ -72,7 +70,7 @@
       <file leaf-file-name="speechrtc.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/js/speechrtc.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="53" selection-start="278" selection-end="278" vertical-scroll-proportion="0.44383562" vertical-offset="108" max-vertical-offset="1872">
+            <state line="18" column="15" selection-start="419" selection-end="419" vertical-scroll-proportion="0.38365898" vertical-offset="108" max-vertical-offset="1872">
               <folding />
             </state>
           </provider>
@@ -294,7 +292,11 @@
       <created>1388456212124</created>
       <updated>1388456212124</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Clean">
+      <created>1388456427285</created>
+      <updated>1388456427285</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -329,8 +331,8 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289256" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35071576" sideWeight="0.6727273" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3272727" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22903885" sideWeight="0.6727273" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3272727" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4016529" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -373,7 +375,8 @@
     <MESSAGE value="Add voiceserver" />
     <MESSAGE value="libopus e libogg funcionando" />
     <MESSAGE value="OggStream add" />
-    <option name="LAST_COMMIT_MESSAGE" value="OggStream add" />
+    <MESSAGE value="Clean" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clean" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -509,7 +512,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/speechrtc.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="53" selection-start="278" selection-end="278" vertical-scroll-proportion="0.44383562" vertical-offset="108" max-vertical-offset="1872">
+        <state line="18" column="15" selection-start="419" selection-end="419" vertical-scroll-proportion="0.38365898" vertical-offset="108" max-vertical-offset="1872">
           <folding />
         </state>
       </provider>

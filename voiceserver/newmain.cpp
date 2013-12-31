@@ -17,6 +17,10 @@
 #include <ogg/ogg.h>
 #include <map>
 #include "OggStream.cpp"
+#include <pocketsphinx/pocketsphinx.h>
+#include <sphinxbase/sphinx_config.h>
+
+#define MODELDIR "/usr/local/src/psmodels"
 
 void *connection_handler(void *);
 
@@ -71,18 +75,13 @@ int main(int argc, char** argv) {
 }
 
 void *connection_handler(void *socket_desc) {
-    //Get the socket descriptor
+
+
     int sock = *(int*) socket_desc;
     int read_size;
     char *message, client_message[8192];
     OggStream* stream = 0;
     StreamMap streams;
-    FILE *file;
-    FILE *fileopus;
-    file = fopen("opus.raw", "wb+"); /* apend file (add text to a file or create a file if it does not exist.*/
-    fileopus = fopen("opus.opus", "wb+"); /* apend file (add text to a file or create a file if it does not exist.*/
-
-    //Receive a message from client
 
     // start opus 
     int error;
@@ -94,6 +93,18 @@ void *connection_handler(void *socket_desc) {
     }
 
     // start pocketsphinx 
+    ps_decoder_t *ps;
+    cmd_ln_t *config;
+
+    config = cmd_ln_init(NULL, ps_args(), TRUE,
+            "-hmm", MODELDIR "/hmm/en_US/hub4wsj_sc_8k",
+            "-lm", MODELDIR "/lm/en/turtle.DMP",
+            "-dict", MODELDIR "/lm/en/turtle.dic",
+            NULL);
+    if (config == NULL) puts("ERROR CREATING PSCONFIG");
+    ps = ps_init(config);
+    if (ps == NULL) puts("ERROR CREATING PSCONFIG");
+
 
     while ((read_size = recv(sock, client_message, 8192, 0)) > 0) {
 
@@ -110,6 +121,9 @@ void *connection_handler(void *socket_desc) {
             // write(sock , client_message , strlen(client_message));
         }
 
+        //FILE *file; file = fopen("opus.raw", "wb+"); 
+        //FILE *fileopus; fileopus = fopen("opus.opus", "wb+"); 
+
         // decode ogg
         ogg_sync_state state;
         ogg_page page;
@@ -117,7 +131,9 @@ void *connection_handler(void *socket_desc) {
         char *buffer = ogg_sync_buffer(&state, 8192);
         memcpy(buffer, client_message, 8192);
         ret = ogg_sync_wrote(&state, 8192);
-        
+
+        // here we accumulate the decoded pcm
+        int totalpcm = 0;
 
         while (ogg_sync_pageout(&state, &page) == 1) {
 
@@ -150,32 +166,54 @@ void *connection_handler(void *socket_desc) {
                 long length_pack = packet.bytes;
                 unsigned char * data_pack = packet.packet;
 
-
                 //from ogg_stream_packetout()
                 // int total = fwrite(data_pack, sizeof(unsigned char) , length_pack , fileopus);      
-
-
 
                 // decode opus 
                 int frame_size = 1920;
                 int lenaudio = frame_size * 1 * sizeof (opus_int16);
                 //opus_int16 audio[lenaudio];
-                short *in, *out;
-                out = (short*) malloc(frame_size * 1 * sizeof (short));
-                int res = opus_decode(dec, data_pack, length_pack, out, frame_size, 0);
-                if (OPUS_INTERNAL_ERROR == res) {
-                    puts("OPUS_INTERNAL_ERROR");
-                } else if (OPUS_INVALID_PACKET == res) {
+                short *in, *pcmsamples;
+                pcmsamples = (short*) malloc(frame_size * 1 * sizeof (short));
+                int totalpcm = opus_decode(dec, data_pack, length_pack, pcmsamples, frame_size, 0);
+
+                // treat response
+                if (OPUS_INTERNAL_ERROR == totalpcm) puts("OPUS_INTERNAL_ERROR");
+                else if (OPUS_INVALID_PACKET == totalpcm) {
                     puts("OPUS_INVALID_PACKET");
-                } else {
-                    puts("OPUS OK");
-                    puts("written to file");
-                    fwrite(out, 2, res, file);
+                }
+                else {
+                    
+                    puts("OPUS OK"); 
+                    
+                    // uncomment to write to file
+                    /*puts("written to file");  fwrite(pcmsamples, 2, res, file); */
+
+                    // send to pocketsphinx
+                    char const *hyp, *uttid;
+                    int rv;
+                    int32 score;
+                    int _res = ps_start_utt(ps, "goforward");
+                    size_t nsamp;
+                    int _rv = ps_process_raw(ps, pcmsamples, totalpcm, FALSE, FALSE);
+                    _rv = ps_end_utt(ps);
+                    if (_rv < 0)
+                    {
+                        puts("Error ending utt");
+                    }
+                    hyp = ps_get_hyp(ps, &score, &uttid);
+                    if (hyp == NULL) 
+                    {
+                       puts("Error hyp()");
+                    }
+                    else
+                    {
+                        printf("Recognized: %s\n", hyp);
+                    }
 
                 }
             }
         }
-
 
 
 
@@ -189,16 +227,20 @@ void *connection_handler(void *socket_desc) {
 
     }
     if (read_size == 0) {
+
+        // EVERYTHING CLEANED AT READ ERROR
         puts("Client disconnected");
         fflush(stdout);
-        fclose(fileopus); /*done!*/
-        fclose(file); /*done!*/
+        //fclose(fileopus); /*done!*/
+        //fclose(file); /*done!*/
+        ps_free(ps);
 
     } else if (read_size == -1) {
         perror("recv failed");
     }
 
     puts("ending handler");
+    ps_free(ps);
     return 0;
 }
 
