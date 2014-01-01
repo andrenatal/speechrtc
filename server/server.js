@@ -27,6 +27,9 @@ bs.on('connection', function(client){
       {
           randomnumber=  +new Date();
           console.log('started: ' + randomnumber);
+          server.socket.write("START", function() {
+              console.log('start sent');
+          });
       }
       else if (meta.name == "fim")
       {
@@ -36,7 +39,7 @@ bs.on('connection', function(client){
           console.log('ended: ' + randomnumber);
 
           server.socket.write("END", function() {
-              console.log('flushed');
+              console.log('end sent');
           });
 
           /*

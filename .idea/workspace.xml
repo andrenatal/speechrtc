@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b78ca35-cd6b-4d5a-9c04-61b32e7b4e45" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/voiceserver/dist/Debug/GNU-Linux-x86/voiceserver" afterPath="$PROJECT_DIR$/voiceserver/dist/Debug/GNU-Linux-x86/voiceserver" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/voiceserver/newmain.cpp" afterPath="$PROJECT_DIR$/voiceserver/newmain.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/server.js" afterPath="$PROJECT_DIR$/server/server.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="speechrtc.iws" />
@@ -25,10 +28,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="server.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="server.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="13" selection-start="1728" selection-end="1728" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1746">
+            <state line="49" column="22" selection-start="1522" selection-end="1522" vertical-scroll-proportion="0.49375" vertical-offset="724" max-vertical-offset="1800">
               <folding />
             </state>
           </provider>
@@ -37,7 +40,7 @@
       <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="25" selection-start="709" selection-end="709" vertical-scroll-proportion="0.0" vertical-offset="517" max-vertical-offset="828">
+            <state line="32" column="25" selection-start="709" selection-end="709" vertical-scroll-proportion="0.0" vertical-offset="576" max-vertical-offset="828">
               <folding />
             </state>
           </provider>
@@ -46,10 +49,8 @@
       <file leaf-file-name="binary.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/js/binary.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="7" selection-start="374" selection-end="374" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="27810">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state line="13" column="7" selection-start="374" selection-end="374" vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="27810">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -57,16 +58,16 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="23" selection-start="165" selection-end="165" vertical-scroll-proportion="-3.3333333" vertical-offset="0" max-vertical-offset="342">
+            <state line="5" column="23" selection-start="165" selection-end="165" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="342">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="speechrtc.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="speechrtc.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/js/speechrtc.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="15" selection-start="419" selection-end="419" vertical-scroll-proportion="0.38365898" vertical-offset="108" max-vertical-offset="1872">
+            <state line="18" column="15" selection-start="419" selection-end="419" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="1872">
               <folding />
             </state>
           </provider>
@@ -95,16 +96,16 @@
         <option value="$PROJECT_DIR$/server/ogg.js" />
         <option value="$PROJECT_DIR$/server/opus.js" />
         <option value="$PROJECT_DIR$/server/node_modules/av/node.js" />
-        <option value="$PROJECT_DIR$/server/server.js" />
         <option value="$PROJECT_DIR$/client/js/speechrtc.js" />
+        <option value="$PROJECT_DIR$/server/server.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1365" />
+    <option name="x" value="1366" />
     <option name="y" value="22" />
-    <option name="width" value="1026" />
-    <option name="height" value="747" />
+    <option name="width" value="1024" />
+    <option name="height" value="746" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -150,20 +151,6 @@
               <option name="myItemId" value="speechrtc" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="voiceserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="speechrtc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="speechrtc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -177,6 +164,7 @@
     <property name="options.searchVisible" value="true" />
     <property name="options.lastSelected" value="settings.nodejs" />
     <property name="recentsLimit" value="5" />
+    <property name="FullScreen" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
   </component>
   <component name="PublishConfig" serverName="cSpeechRTC" serverId="21a3acf2-9020-4cda-81a2-b605094630c4">
@@ -296,7 +284,11 @@
       <created>1388519739367</created>
       <updated>1388519739367</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Pocketsphinx integrated">
+      <created>1388525164646</created>
+      <updated>1388525164646</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -320,27 +312,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1365" y="22" width="1026" height="747" extended-state="6" />
+    <frame x="1366" y="22" width="1024" height="746" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23415133" sideWeight="0.5983471" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289256" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41652894" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289256" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22903885" sideWeight="0.6727273" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3272727" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4016529" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289256" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4016529" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3272727" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -387,6 +379,16 @@
           <line>594</line>
           <option name="timeStamp" value="56" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/server.js</url>
+          <line>29</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/server.js</url>
+          <line>40</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
@@ -396,36 +398,28 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="62" />
+      <option name="time" value="66" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/.WebStorm7/system/extLibs/nodejs-v0.10.23-src/core-modules-sources/lib/module.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="455" column="0" selection-start="12767" selection-end="12767" vertical-scroll-proportion="0.32402235" vertical-offset="7732" max-vertical-offset="9432">
-          <folding />
-        </state>
+        <state line="455" column="0" selection-start="12767" selection-end="12767" vertical-scroll-proportion="0.32402235" vertical-offset="7732" max-vertical-offset="9432" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/node_modules/binaryjs/lib/stream.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="0" selection-start="2279" selection-end="2279" vertical-scroll-proportion="0.35" vertical-offset="1915" max-vertical-offset="2412">
-          <folding />
-        </state>
+        <state line="113" column="0" selection-start="2279" selection-end="2279" vertical-scroll-proportion="0.35" vertical-offset="1915" max-vertical-offset="2412" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.WebStorm7/system/extLibs/nodejs-v0.10.23-src/core-modules-sources/lib/fs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="683" column="0" selection-start="17802" selection-end="17802" vertical-scroll-proportion="0.33142856" vertical-offset="11836" max-vertical-offset="31428">
-          <folding />
-        </state>
+        <state line="683" column="0" selection-start="17802" selection-end="17802" vertical-scroll-proportion="0.33142856" vertical-offset="11836" max-vertical-offset="31428" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/node_modules/av/node_modules/speaker/test/test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="275" selection-end="275" vertical-scroll-proportion="-4.0914288" vertical-offset="1648" max-vertical-offset="2052">
-          <folding />
-        </state>
+        <state line="12" column="0" selection-start="275" selection-end="275" vertical-scroll-proportion="-4.0914288" vertical-offset="1648" max-vertical-offset="2052" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/node_modules/av/node.js">
@@ -441,59 +435,38 @@
     </entry>
     <entry file="file://$USER_HOME$/.WebStorm7/system/extLibs/nodejs-v0.10.23-src/core-modules-sources/lib/buffer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="352" column="24" selection-start="9155" selection-end="9155" vertical-scroll-proportion="0.0" vertical-offset="5879" max-vertical-offset="16956">
-          <folding />
-        </state>
+        <state line="352" column="24" selection-start="9155" selection-end="9155" vertical-scroll-proportion="0.0" vertical-offset="5879" max-vertical-offset="16956" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/speechserver/speech.pl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="504">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="504" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/speechserver/upload.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1116">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1116" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/speechserver/convert.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="29" selection-start="523" selection-end="523" vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="738">
-          <folding />
-        </state>
+        <state line="19" column="29" selection-start="523" selection-end="523" vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="738" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.WebStorm7/system/extLibs/nodejs-v0.10.23-src/core-modules-sources/lib/events.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="0" selection-start="2753" selection-end="2753" vertical-scroll-proportion="0.0" vertical-offset="821" max-vertical-offset="5094">
-          <folding />
-        </state>
+        <state line="71" column="0" selection-start="2753" selection-end="2753" vertical-scroll-proportion="0.0" vertical-offset="821" max-vertical-offset="5094" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.WebStorm7/system/extLibs/nodejs-v0.10.23-src/core-modules-sources/lib/net.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="555" column="18" selection-start="14590" selection-end="14590" vertical-scroll-proportion="0.33236995" vertical-offset="9533" max-vertical-offset="23616">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="13" selection-start="1728" selection-end="1728" vertical-scroll-proportion="0.0" vertical-offset="730" max-vertical-offset="1746">
-          <folding />
-        </state>
+        <state line="555" column="18" selection-start="14590" selection-end="14590" vertical-scroll-proportion="0.33236995" vertical-offset="9533" max-vertical-offset="23616" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/binary.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="7" selection-start="374" selection-end="374" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="27810">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -506,14 +479,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="23" selection-start="165" selection-end="165" vertical-scroll-proportion="-3.3333333" vertical-offset="0" max-vertical-offset="342">
+        <state line="5" column="23" selection-start="165" selection-end="165" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="342">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/speechrtc.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="15" selection-start="419" selection-end="419" vertical-scroll-proportion="0.38365898" vertical-offset="108" max-vertical-offset="1872">
+        <state line="18" column="15" selection-start="419" selection-end="419" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="1872">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="22" selection-start="1522" selection-end="1522" vertical-scroll-proportion="0.49375" vertical-offset="724" max-vertical-offset="1800">
           <folding />
         </state>
       </provider>

@@ -86,7 +86,7 @@ void *connection_handler(void *socket_desc) {
     // start opus 
     int error;
     OpusDecoder *dec;
-    dec = opus_decoder_create(8000, 1, &error);
+    dec = opus_decoder_create(16000, 1, &error);
     if (error == OPUS_OK && dec != NULL) {
         // Creation of memory all ok.
         puts("OPUS LOADED");
@@ -97,20 +97,21 @@ void *connection_handler(void *socket_desc) {
     cmd_ln_t *config;
 
     config = cmd_ln_init(NULL, ps_args(), TRUE,
-            "-hmm", MODELDIR "/hmm/en_US/hub4wsj_sc_8k",
-            "-lm", MODELDIR "/lm/en/turtle.DMP",
-            "-dict", MODELDIR "/lm/en/turtle.dic",
+            /*      "-hmm", MODELDIR "/hmm/en_US/hub4wsj_sc_8k",
+                  "-lm", MODELDIR "/lm/en/turtle.DMP",
+                  "-dict", MODELDIR "/lm/en/turtle.dic", */
+            "-hmm", "/var/modelsps/hmm/hub4wsj_sc_8k/",
+            "-lm", "/usr/local/share/pocketsphinx/model/lm/en/turtle.DMP",
+            "-dict", "/usr/local/share/pocketsphinx/model/lm/en/turtle.dic",
+
             NULL);
     if (config == NULL) puts("ERROR CREATING PSCONFIG");
     ps = ps_init(config);
     if (ps == NULL) puts("ERROR CREATING PSCONFIG");
 
-        FILE *file = fopen("opus.raw", "wb+");
-        
+    FILE *file;
     while ((read_size = recv(sock, client_message, 8192, 0)) > 0) {
 
-        
-        
         char otherString[3];
         strncpy(otherString, client_message, 3);
 
@@ -118,11 +119,35 @@ void *connection_handler(void *socket_desc) {
             puts("GRAM RECVD. StartPS");
         }
 
+        if (strcmp(otherString, "STA") == 0) {
+            // this should be moved to START commmand from client
+            int _res = ps_start_utt(ps, "goforward");
+
+            file = fopen("opus.raw", "wb+");
+        }
+
         if (strcmp(otherString, "END") == 0) {
             puts("END RECVD");
             fclose(file);
+
+            char const *hyp, *uttid;
+            int rv;
+
+            rv = ps_end_utt(ps);
+            if (rv < 0) {
+                puts("Error ending utt");
+            }
+
+            int32 score;
+            hyp = ps_get_hyp(ps, &score, &uttid);
+            if (hyp == NULL) {
+                puts("Error hyp()");
+            } else {
+                printf("Recognized: %s\n", hyp);
+            }
+
             // envia final hypothesis             
-            // write(sock , client_message , strlen(client_message));
+            write(sock, hyp, strlen(hyp));
         }
 
         // decode ogg
@@ -187,30 +212,17 @@ void *connection_handler(void *socket_desc) {
                     puts("written to file");
                     fwrite(pcmsamples, 2, totalpcm, file);
 
-
-                    /*
                     // send to pocketsphinx
-                    char const *hyp, *uttid;
-                    int rv;
-                    int32 score;
-                    int _res = ps_start_utt(ps, "goforward");
+
                     size_t nsamp;
-                    int _rv = ps_process_raw(ps, pcmsamples, totalpcm, FALSE, FALSE);
-                    _rv = ps_end_utt(ps);
-                    if (_rv < 0)
-                    {
-                        puts("Error ending utt");
-                    }
-                    hyp = ps_get_hyp(ps, &score, &uttid);
-                    if (hyp == NULL) 
-                    {
-                       puts("Error hyp()");
-                    }
-                    else
-                    {
-                        printf("Recognized: %s\n", hyp);
-                    }
-                     */
+                    int _rv = ps_process_raw(ps, pcmsamples, totalpcm, TRUE, FALSE);
+                    if (_rv < 0) puts("Error feeding ps_process_raw");
+
+
+
+
+
+
                 }
             }
         }
