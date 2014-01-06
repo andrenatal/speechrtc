@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/vad
+END
+vad_sp.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/vad/vad_sp.h
+END
+vad_core.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/vad/vad_core.c
+END
+vad_core_unittest.cc
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/vad/vad_core_unittest.cc
+END
+vad_core.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/vad/vad_core.h
+END
+Android.mk
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/3107/trunk/webrtc/common_audio/vad/Android.mk
+END
+vad_gmm.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/vad/vad_gmm.c
+END
+vad_filterbank.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/vad/vad_filterbank.c
+END
+vad_sp.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/vad/vad_sp.c
+END
+vad_unittest.cc
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/vad/vad_unittest.cc
+END
+vad_gmm_unittest.cc
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/vad/vad_gmm_unittest.cc
+END
+vad_filterbank_unittest.cc
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/vad/vad_filterbank_unittest.cc
+END
+vad_unittest.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/vad/vad_unittest.h
+END
+vad_sp_unittest.cc
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/vad/vad_sp_unittest.cc
+END
+vad_gmm.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/vad/vad_gmm.h
+END
+vad_filterbank.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/vad/vad_filterbank.h
+END
+webrtc_vad.c
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/vad/webrtc_vad.c
+END

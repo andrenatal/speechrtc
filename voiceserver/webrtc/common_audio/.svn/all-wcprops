@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/5260/trunk/webrtc/common_audio
+END
+audio_util_unittest.cc
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/4695/trunk/webrtc/common_audio/audio_util_unittest.cc
+END
+audio_util.cc
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/3915/trunk/webrtc/common_audio/audio_util.cc
+END
+common_audio.gyp
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/5250/trunk/webrtc/common_audio/common_audio.gyp
+END
+common_audio_unittests.isolate
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/5260/trunk/webrtc/common_audio/common_audio_unittests.isolate
+END
+OWNERS
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/2963/trunk/webrtc/common_audio/OWNERS
+END

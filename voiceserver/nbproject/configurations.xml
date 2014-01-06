@@ -16,6 +16,75 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <logicalFolder name="webrtc" displayName="webrtc" projectFiles="true">
+        <logicalFolder name="common_audio"
+                       displayName="common_audio"
+                       projectFiles="true">
+          <logicalFolder name="include" displayName="include" projectFiles="true">
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/include/audio_util.h</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/include/typedefs.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="signal_processing"
+                         displayName="signal_processing"
+                         projectFiles="true">
+            <logicalFolder name="include" displayName="include" projectFiles="true">
+              <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/include/real_fft.h</itemPath>
+              <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/include/signal_processing_library.h</itemPath>
+              <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/include/spl_inl.h</itemPath>
+              <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/include/spl_inl_armv7.h</itemPath>
+              <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/include/spl_inl_mips.h</itemPath>
+            </logicalFolder>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/Android.mk</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/complex_bit_reverse.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/complex_fft.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/complex_fft_tables.h</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/copy_set_operations.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/cross_correlation.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/division_operations.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/downsample_fast.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/energy.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/filter_ar.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/filter_ar_fast_q12.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/filter_ma_fast_q12.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/get_hanning_window.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/get_scaling_square.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/min_max_operations.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/real_fft.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/refl_coef_to_lpc.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/resample.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/resample_48khz.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/resample_by_2.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/resample_by_2_internal.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/resample_by_2_internal.h</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/resample_fractional.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/spl_init.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/spl_sqrt.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/spl_version.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/splitting_filter.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/sqrt_of_one_minus_x_squared.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/vector_scaling_operations.c</itemPath>
+          </logicalFolder>
+          <logicalFolder name="vad" displayName="vad" projectFiles="true">
+            <logicalFolder name="include" displayName="include" projectFiles="true">
+              <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/include/webrtc_vad.h</itemPath>
+            </logicalFolder>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/Android.mk</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/vad_core.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/vad_core.h</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/vad_filterbank.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/vad_filterbank.h</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/vad_gmm.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/vad_gmm.h</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/vad_sp.c</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/vad_sp.h</itemPath>
+            <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/webrtc_vad.c</itemPath>
+          </logicalFolder>
+          <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/OWNERS</itemPath>
+          <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/audio_util.cc</itemPath>
+          <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/common_audio.gyp</itemPath>
+          <itemPath>/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/common_audio_unittests.isolate</itemPath>
+        </logicalFolder>
+      </logicalFolder>
       <itemPath>/var/www/speechrtc/voiceserver/OggStream.cpp</itemPath>
       <itemPath>/var/www/speechrtc/voiceserver/newmain.cpp</itemPath>
     </logicalFolder>
@@ -31,6 +100,9 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>/var/www/speechrtc/voiceserver/webrtc</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="Debug" type="1">
@@ -44,6 +116,9 @@
           <incDir>
             <pElem>/usr/local/lib</pElem>
           </incDir>
+          <preprocessorList>
+            <Elem>WEBRTC_POSIX</Elem>
+          </preprocessorList>
         </cTool>
         <ccTool>
           <incDir>
@@ -60,6 +135,261 @@
           <commandLine>-lpthread -lopus -logg -lpocketsphinx -lsphinxbase</commandLine>
         </linkerTool>
       </compileType>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/OWNERS"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/audio_util.cc"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/common_audio.gyp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/common_audio_unittests.isolate"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/include/audio_util.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/include/typedefs.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/Android.mk"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/complex_bit_reverse.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/complex_fft.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/complex_fft_tables.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/copy_set_operations.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/cross_correlation.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/division_operations.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/downsample_fast.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/energy.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/filter_ar.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/filter_ar_fast_q12.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/filter_ma_fast_q12.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/get_hanning_window.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/get_scaling_square.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/include/real_fft.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/include/signal_processing_library.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/include/spl_inl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/include/spl_inl_armv7.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/include/spl_inl_mips.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/min_max_operations.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/real_fft.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/refl_coef_to_lpc.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/resample.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/resample_48khz.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/resample_by_2.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/resample_by_2_internal.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/resample_by_2_internal.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/resample_fractional.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/spl_init.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/spl_sqrt.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/spl_version.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/splitting_filter.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/sqrt_of_one_minus_x_squared.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/vector_scaling_operations.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/Android.mk"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/include/webrtc_vad.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/vad_core.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/vad_core.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/vad_filterbank.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/vad_filterbank.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/vad_gmm.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/vad_gmm.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/vad_sp.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/vad_sp.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/webrtc_vad.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
       <item path="/home/andre/NetBeansProjects/voiceserver/opus_interface.h"
             ex="false"
             tool="3"
@@ -111,6 +441,261 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/OWNERS"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/audio_util.cc"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/common_audio.gyp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/common_audio_unittests.isolate"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/include/audio_util.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/include/typedefs.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/Android.mk"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/complex_bit_reverse.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/complex_fft.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/complex_fft_tables.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/copy_set_operations.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/cross_correlation.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/division_operations.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/downsample_fast.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/energy.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/filter_ar.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/filter_ar_fast_q12.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/filter_ma_fast_q12.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/get_hanning_window.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/get_scaling_square.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/include/real_fft.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/include/signal_processing_library.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/include/spl_inl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/include/spl_inl_armv7.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/include/spl_inl_mips.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/min_max_operations.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/real_fft.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/refl_coef_to_lpc.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/resample.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/resample_48khz.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/resample_by_2.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/resample_by_2_internal.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/resample_by_2_internal.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/resample_fractional.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/spl_init.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/spl_sqrt.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/spl_version.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/splitting_filter.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/sqrt_of_one_minus_x_squared.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/vector_scaling_operations.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/Android.mk"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/include/webrtc_vad.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/vad_core.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/vad_core.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/vad_filterbank.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/vad_filterbank.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/vad_gmm.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/vad_gmm.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/vad_sp.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/vad_sp.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/andre/NetBeansProjects/VadTester/webrtc/common_audio/vad/webrtc_vad.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
       <item path="/home/andre/NetBeansProjects/voiceserver/opus_interface.h"
             ex="false"
             tool="3"

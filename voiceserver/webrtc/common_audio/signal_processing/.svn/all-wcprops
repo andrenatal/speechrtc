@@ -1,0 +1,335 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/4779/trunk/webrtc/common_audio/signal_processing
+END
+downsample_fast_mips.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/4352/trunk/webrtc/common_audio/signal_processing/downsample_fast_mips.c
+END
+resample_by_2_internal.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/resample_by_2_internal.c
+END
+min_max_operations_mips.c
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/min_max_operations_mips.c
+END
+real_fft_unittest.cc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/4390/trunk/webrtc/common_audio/signal_processing/real_fft_unittest.cc
+END
+refl_coef_to_lpc.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/refl_coef_to_lpc.c
+END
+resample_by_2_internal.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/resample_by_2_internal.h
+END
+lpc_to_refl_coef.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/lpc_to_refl_coef.c
+END
+downsample_fast.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/downsample_fast.c
+END
+spl_sqrt_floor_arm.S
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/spl_sqrt_floor_arm.S
+END
+cross_correlation_neon.S
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/3803/trunk/webrtc/common_audio/signal_processing/cross_correlation_neon.S
+END
+energy.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/energy.c
+END
+filter_ar_fast_q12_mips.c
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4352/trunk/webrtc/common_audio/signal_processing/filter_ar_fast_q12_mips.c
+END
+levinson_durbin.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/levinson_durbin.c
+END
+spl_sqrt_floor_mips.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4779/trunk/webrtc/common_audio/signal_processing/spl_sqrt_floor_mips.c
+END
+filter_ma_fast_q12.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/filter_ma_fast_q12.c
+END
+auto_corr_to_refl_coef.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/auto_corr_to_refl_coef.c
+END
+filter_ar_fast_q12_armv7.S
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/3124/trunk/webrtc/common_audio/signal_processing/filter_ar_fast_q12_armv7.S
+END
+vector_scaling_operations_neon.S
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/3124/trunk/webrtc/common_audio/signal_processing/vector_scaling_operations_neon.S
+END
+vector_scaling_operations.c
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/vector_scaling_operations.c
+END
+randomization_functions.c
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/randomization_functions.c
+END
+ilbc_specific_functions.c
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/ilbc_specific_functions.c
+END
+spl_sqrt.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/spl_sqrt.c
+END
+spl_sqrt_floor.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/spl_sqrt_floor.c
+END
+auto_correlation.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/auto_correlation.c
+END
+resample_fractional.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/resample_fractional.c
+END
+complex_bit_reverse_arm.S
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/3124/trunk/webrtc/common_audio/signal_processing/complex_bit_reverse_arm.S
+END
+spl_init.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/4779/trunk/webrtc/common_audio/signal_processing/spl_init.c
+END
+real_fft.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/4390/trunk/webrtc/common_audio/signal_processing/real_fft.c
+END
+cross_correlation_mips.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4779/trunk/webrtc/common_audio/signal_processing/cross_correlation_mips.c
+END
+splitting_filter.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/splitting_filter.c
+END
+resample_by_2.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/resample_by_2.c
+END
+downsample_fast_neon.S
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/3124/trunk/webrtc/common_audio/signal_processing/downsample_fast_neon.S
+END
+division_operations.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/division_operations.c
+END
+dot_product_with_scale.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/dot_product_with_scale.c
+END
+complex_bit_reverse_mips.c
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4352/trunk/webrtc/common_audio/signal_processing/complex_bit_reverse_mips.c
+END
+copy_set_operations.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/copy_set_operations.c
+END
+min_max_operations_neon.S
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/3124/trunk/webrtc/common_audio/signal_processing/min_max_operations_neon.S
+END
+cross_correlation.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/cross_correlation.c
+END
+min_max_operations.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/min_max_operations.c
+END
+vector_scaling_operations_mips.c
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/4779/trunk/webrtc/common_audio/signal_processing/vector_scaling_operations_mips.c
+END
+complex_fft_mips.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/4352/trunk/webrtc/common_audio/signal_processing/complex_fft_mips.c
+END
+get_scaling_square.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/get_scaling_square.c
+END
+resample_48khz.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/resample_48khz.c
+END
+complex_bit_reverse.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/complex_bit_reverse.c
+END
+spl_version.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/spl_version.c
+END
+sqrt_of_one_minus_x_squared.c
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/sqrt_of_one_minus_x_squared.c
+END
+Android.mk
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/3124/trunk/webrtc/common_audio/signal_processing/Android.mk
+END
+complex_fft_tables.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/4141/trunk/webrtc/common_audio/signal_processing/complex_fft_tables.h
+END
+complex_fft.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/4352/trunk/webrtc/common_audio/signal_processing/complex_fft.c
+END
+filter_ar.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/filter_ar.c
+END
+filter_ar_fast_q12.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/filter_ar_fast_q12.c
+END
+resample.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/resample.c
+END
+get_hanning_window.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/get_hanning_window.c
+END
+signal_processing_unittest.cc
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/4779/trunk/webrtc/common_audio/signal_processing/signal_processing_unittest.cc
+END
+resample_by_2_mips.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/4107/trunk/webrtc/common_audio/signal_processing/resample_by_2_mips.c
+END

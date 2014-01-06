@@ -19,6 +19,7 @@
 #include "OggStream.cpp"
 #include <pocketsphinx/pocketsphinx.h>
 #include <sphinxbase/sphinx_config.h>
+#include "webrtc/common_audio/vad/include/webrtc_vad.h"
 
 #define MODELDIR "/usr/local/src/psmodels"
 
@@ -95,6 +96,15 @@ void *connection_handler(void *socket_desc) {
     // start pocketsphinx 
     ps_decoder_t *ps;
     cmd_ln_t *config;
+
+    // VAD
+
+    VadInst* handle = NULL;
+
+    if (WebRtcVad_Create(&handle) < 0) puts("Error creating WebRtcVad_Create");
+    if (WebRtcVad_Init(handle) < 0) puts("Error initializing WebRtcVad_Init");
+    if (WebRtcVad_set_mode(handle, 3) < 0) puts("Error setting mode WebRtcVad_set_mode");
+
 
     config = cmd_ln_init(NULL, ps_args(), TRUE,
             /*      "-hmm", MODELDIR "/hmm/en_US/hub4wsj_sc_8k",
@@ -209,11 +219,18 @@ void *connection_handler(void *socket_desc) {
                     puts("OPUS OK");
 
                     // uncomment to write to file
-                    puts("written to file");
-                    fwrite(pcmsamples, 2, totalpcm, file);
+                    //puts("written to file");
+                    //fwrite(pcmsamples, 2, totalpcm, file);
+
+                    // check if voice
+                    int vad = WebRtcVad_Process(handle, 16000, pcmsamples, totalpcm);
+
+                    if (vad == 0)
+                        puts("SILENCE");
+                    else
+                        puts("VOICE");
 
                     // send to pocketsphinx
-
                     size_t nsamp;
                     int _rv = ps_process_raw(ps, pcmsamples, totalpcm, TRUE, FALSE);
                     if (_rv < 0) puts("Error feeding ps_process_raw");
