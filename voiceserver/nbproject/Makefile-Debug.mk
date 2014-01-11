@@ -44,8 +44,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/371866273/downsample_fast.o \
 	${OBJECTDIR}/_ext/371866273/energy.o \
 	${OBJECTDIR}/_ext/371866273/filter_ar.o \
-	${OBJECTDIR}/_ext/371866273/filter_ar_fast_q12.o \
-	${OBJECTDIR}/_ext/371866273/filter_ma_fast_q12.o \
 	${OBJECTDIR}/_ext/371866273/get_hanning_window.o \
 	${OBJECTDIR}/_ext/371866273/get_scaling_square.o \
 	${OBJECTDIR}/_ext/371866273/min_max_operations.o \
@@ -139,16 +137,6 @@ ${OBJECTDIR}/_ext/371866273/filter_ar.o: /home/andre/NetBeansProjects/VadTester/
 	${MKDIR} -p ${OBJECTDIR}/_ext/371866273
 	${RM} "$@.d"
 	$(COMPILE.c) -g -DWEBRTC_POSIX -I/usr/local/lib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/371866273/filter_ar.o /home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/filter_ar.c
-
-${OBJECTDIR}/_ext/371866273/filter_ar_fast_q12.o: /home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/filter_ar_fast_q12.c 
-	${MKDIR} -p ${OBJECTDIR}/_ext/371866273
-	${RM} "$@.d"
-	$(COMPILE.c) -g -DWEBRTC_POSIX -I/usr/local/lib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/371866273/filter_ar_fast_q12.o /home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/filter_ar_fast_q12.c
-
-${OBJECTDIR}/_ext/371866273/filter_ma_fast_q12.o: /home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/filter_ma_fast_q12.c 
-	${MKDIR} -p ${OBJECTDIR}/_ext/371866273
-	${RM} "$@.d"
-	$(COMPILE.c) -g -DWEBRTC_POSIX -I/usr/local/lib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/371866273/filter_ma_fast_q12.o /home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/filter_ma_fast_q12.c
 
 ${OBJECTDIR}/_ext/371866273/get_hanning_window.o: /home/andre/NetBeansProjects/VadTester/webrtc/common_audio/signal_processing/get_hanning_window.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/371866273

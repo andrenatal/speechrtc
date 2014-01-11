@@ -5,6 +5,7 @@
  * Created on December 30, 2013, 8:23 PM
  */
 
+#include <sys/time.h>
 #include <cstdlib>
 #include<stdio.h>
 #include<string.h> //strlen
@@ -23,9 +24,16 @@
 
 #define MODELDIR "/usr/local/src/psmodels"
 
+
+
 void *connection_handler(void *);
+void rec_and_send(ps_decoder_t *ps, int sock);
+long long current_timestamp();
 
 using namespace std;
+
+long maxsilence = 1500;
+long minvoice = 250;
 
 /*
  * 
@@ -106,6 +114,7 @@ void *connection_handler(void *socket_desc) {
     if (WebRtcVad_set_mode(handle, 3) < 0) puts("Error setting mode WebRtcVad_set_mode");
 
 
+
     config = cmd_ln_init(NULL, ps_args(), TRUE,
             /*      "-hmm", MODELDIR "/hmm/en_US/hub4wsj_sc_8k",
                   "-lm", MODELDIR "/lm/en/turtle.DMP",
@@ -120,6 +129,14 @@ void *connection_handler(void *socket_desc) {
     if (ps == NULL) puts("ERROR CREATING PSCONFIG");
 
     FILE *file;
+
+    bool touchedvoice = false;
+    bool touchedsilence = false;
+    bool finishedvoice = false;
+    long samplesvoice = 0;
+    long samplessilence = 0;
+    long long dtantesmili = current_timestamp();
+
     while ((read_size = recv(sock, client_message, 8192, 0)) > 0) {
 
         char otherString[3];
@@ -138,26 +155,10 @@ void *connection_handler(void *socket_desc) {
 
         if (strcmp(otherString, "END") == 0) {
             puts("END RECVD");
-            fclose(file);
+            //fclose(file);
 
-            char const *hyp, *uttid;
-            int rv;
+            rec_and_send(ps, sock);
 
-            rv = ps_end_utt(ps);
-            if (rv < 0) {
-                puts("Error ending utt");
-            }
-
-            int32 score;
-            hyp = ps_get_hyp(ps, &score, &uttid);
-            if (hyp == NULL) {
-                puts("Error hyp()");
-            } else {
-                printf("Recognized: %s\n", hyp);
-            }
-
-            // envia final hypothesis             
-            write(sock, hyp, strlen(hyp));
         }
 
         // decode ogg
@@ -198,7 +199,7 @@ void *connection_handler(void *socket_desc) {
 
                 // A packet is available, this is what we pass  to opus
                 stream->mPacketCount++;
-                puts("OGG OK");
+                //puts("OGG OK");
                 long length_pack = packet.bytes;
                 unsigned char * data_pack = packet.packet;
 
@@ -210,32 +211,70 @@ void *connection_handler(void *socket_desc) {
                 pcmsamples = (short*) malloc(frame_size * 1 * sizeof (short));
                 int totalpcm = opus_decode(dec, data_pack, length_pack, pcmsamples, frame_size, 0);
 
-                // treat response
+                // treat for more errors
                 if (OPUS_INTERNAL_ERROR == totalpcm) puts("OPUS_INTERNAL_ERROR");
                 else if (OPUS_INVALID_PACKET == totalpcm) {
                     puts("OPUS_INVALID_PACKET");
                 } else {
 
-                    puts("OPUS OK");
-
+                    // puts("OPUS OK");
                     // uncomment to write to file
                     //puts("written to file");
                     //fwrite(pcmsamples, 2, totalpcm, file);
 
-                    // check if voice
+                    long long dtdepois = current_timestamp();
+
+                    // VAD
                     int vad = WebRtcVad_Process(handle, 16000, pcmsamples, totalpcm);
 
-                    if (vad == 0)
-                        puts("SILENCE");
-                    else
-                        puts("VOICE");
 
-                    // send to pocketsphinx
-                    size_t nsamp;
-                    int _rv = ps_process_raw(ps, pcmsamples, totalpcm, TRUE, FALSE);
-                    if (_rv < 0) puts("Error feeding ps_process_raw");
+                    if (vad == 0) {
+
+                        if (touchedvoice) {
+                            samplessilence += dtdepois - dtantesmili;
+                            if (samplessilence > maxsilence) {
+                                // puts("TOUCH SILENCE");
+                                touchedsilence = true;
+                            }
+                        }
+
+                    } else {
+                        samplesvoice += dtdepois - dtantesmili;
+                        if (samplesvoice > minvoice) {
+                            touchedvoice = true;
+                            //  puts("TOUCH VOICE");
+                        }
+                    }
+                    dtantesmili = dtdepois;
 
 
+                    if (touchedvoice && touchedsilence) {
+                        //finishedvoice = true;
+                        puts("TOUCH VOICE & SIL ");
+                        touchedvoice = false;
+                        touchedsilence = false;
+                        finishedvoice = false;
+                        samplesvoice = 0;
+                        samplessilence = 0;
+                    }
+
+                    if (finishedvoice) {
+                        // stop and get hypothesis
+                        rec_and_send(ps, sock);
+                        //if (ps_start_utt(ps, "goforward") < 0) puts("Error restarting ps_start_utt");
+
+                        touchedvoice = false;
+                        touchedsilence = false;
+                        finishedvoice = false;
+                        samplesvoice = 0;
+                        samplessilence = 0;
+                        dtantesmili = current_timestamp();
+
+
+                    } else {
+                        // speaking...send to pocketsphinx
+                        if (ps_process_raw(ps, pcmsamples, totalpcm, TRUE, FALSE) < 0) puts("Error feeding ps_process_raw");
+                    }
 
 
 
@@ -252,6 +291,9 @@ void *connection_handler(void *socket_desc) {
         // write(sock , client_message , strlen(client_message));
 
         //  puts("written to file"); fwrite(client_message, 1, 1000, file); 
+
+
+
         memset(client_message, 0, 8192);
 
     }
@@ -271,4 +313,28 @@ void *connection_handler(void *socket_desc) {
     return 0;
 }
 
+long long current_timestamp() {
+    struct timeval te;
+    gettimeofday(&te, NULL); // get current time
+    long long milliseconds = te.tv_sec * 1000LL + te.tv_usec / 1000; // caculate milliseconds
+    //  printf("milliseconds: %lld\n", milliseconds);
+    return milliseconds;
+}
 
+void rec_and_send(ps_decoder_t *ps, int sock) {
+    char const *hyp, *uttid;
+    int rv;
+
+    if (ps_end_utt(ps) < 0) puts("Error ending utt");
+
+    int32 score;
+    hyp = ps_get_hyp(ps, &score, &uttid);
+    if (hyp == NULL) {
+        puts("Error hyp()");
+    } else {
+        printf("Recognized: %s\n", hyp);
+    }
+
+    // envia final hypothesis             
+    write(sock, hyp, strlen(hyp));
+}

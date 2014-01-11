@@ -7,13 +7,16 @@ var utils;
 var _stream;
 var offline = true;
 var nomike = true;
+var speechEvents;
+var voicemin = 250;
+var silmax = 1500;
 
 function SpeechRTC(lang,success,error)
 {
     this.status = "offline";
     this.lang = lang;
 
-    var client = new BinaryClient('ws://192.168.1.133:9000');
+    var client = new BinaryClient('ws://192.168.1.134:9000');
     client.on('error', function(error){
         if (SpeechRTC.onConnectionError) SpeechRTC.onConnectionError(error);
         return;
@@ -33,6 +36,9 @@ function SpeechRTC(lang,success,error)
         navigator.getUserMedia({audio: true},
             function(stream){
                 // if everything ok
+                var options = {};
+                speechEvents = hark(stream, options);
+                declarespeechevents();
                 _stream = stream;
                 if (success) success() ;
                 nomike = false;
@@ -53,7 +59,7 @@ function SpeechRTC(lang,success,error)
         }
         wsstream = client.send("0", {name: "start", size: 0});
         mediaRecorder = new MediaRecorder(_stream);
-        mediaRecorder.start(1000);
+        mediaRecorder.start(250);
         mediaRecorder.ondataavailable = function(e) {
             wsstream = client.send(e.data, {name: "audio", size: e.data.size});
         };
@@ -91,8 +97,32 @@ function utils()
         return  (typeof MediaRecorder === 'undefined' || !navigator.getUserMedia)  ?  false :  true;
     }
 }
+
+
+function declarespeechevents()
+{
+    var touchvoice ,  counting = false;
+
+    speechEvents.on('speaking', function() {
+        if (!counting)
+        {
+            setTimeout(function(){ touchvoice = true; console.log('touchvoice' + Date.now()); },250);
+            counting = true;
+        }
+    });
+
+    speechEvents.on('stopped_speaking', function() {
+        if (counting)
+        {
+            if (touchvoice)
+                setTimeout(function(){ touchvoice = false;  counting = false; console.log('stopped_speaking touchsilence. sending server');  },1500);
+        }
+    });
+}
+
 utils = new utils();
 utils.include("js/binary.js");
+utils.include("js/hark.bundle.js");
 
 
 
