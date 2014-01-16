@@ -1,0 +1,3 @@
+#JSGF V1.0;
+grammar test;
+public <simple> =  go forward  |  turn left | aeromexico flight | open browser ;
