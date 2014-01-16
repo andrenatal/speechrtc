@@ -10,13 +10,14 @@ var nomike = true;
 var speechEvents;
 var voicemin = 250;
 var silmax = 1500;
+var lastpacket = false;
 
 function SpeechRTC(lang,success,error)
 {
     this.status = "offline";
     this.lang = lang;
 
-    var client = new BinaryClient('ws://192.168.1.134:9000');
+    var client = new BinaryClient('ws://'+window.content.location.host+':9000');
     client.on('error', function(error){
         if (SpeechRTC.onConnectionError) SpeechRTC.onConnectionError(error);
         return;
@@ -24,6 +25,22 @@ function SpeechRTC(lang,success,error)
     client.on('open', function(client){
         offline = false;
         if (SpeechRTC.onConnection) SpeechRTC.onConnection();
+    });
+
+
+    client.on('stream', function(stream, meta){
+
+        // Got new data
+        stream.on('data', function(data){
+            if (meta.name == "res")
+            {
+                var  binaryString = '', bytes = new Uint8Array(data), length = bytes.length;
+                for (var i = 0; i < length; i++) {
+                    binaryString += String.fromCharCode(bytes[i]);
+                }
+                SpeechRTC.onRecognition(binaryString);
+            }
+        });
     });
 
     var mediaRecorder;
@@ -62,6 +79,13 @@ function SpeechRTC(lang,success,error)
         mediaRecorder.start(250);
         mediaRecorder.ondataavailable = function(e) {
             wsstream = client.send(e.data, {name: "audio", size: e.data.size});
+
+            if (lastpacket)
+            {
+                lastpacket = false;
+                stop();
+            }
+
         };
         mediaRecorder.onerror = function(e){
             if (SpeechRTC.onListenError) SpeechRTC.onRecognitionError(e);
@@ -70,13 +94,19 @@ function SpeechRTC(lang,success,error)
 
     this.stop = function()
     {
-        setTimeout( function(){
+
             mediaRecorder.stop();
             wsstream = client.send("0", {name: "fim", size: 0});
             wsstream.on('data', function(data){
                 if (SpeechRTC.onRecognition) SpeechRTC.onRecognition(data);
             });
-        }, 500);
+
+    }
+
+    this.setGrammar = function(grammar)
+    {
+        console.log("grammar.length:" + grammar.length);
+        client.send(grammar, {name: "grm", size: grammar.length});
     }
 
 }
@@ -95,6 +125,11 @@ function utils()
     {
         navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
         return  (typeof MediaRecorder === 'undefined' || !navigator.getUserMedia)  ?  false :  true;
+    }
+
+    this.generatejsgf = function()
+    {
+
     }
 }
 
@@ -115,7 +150,7 @@ function declarespeechevents()
         if (counting)
         {
             if (touchvoice)
-                setTimeout(function(){ touchvoice = false;  counting = false; console.log('stopped_speaking touchsilence. sending server');  },1500);
+                setTimeout(function(){ touchvoice = false;  counting = false; console.log('stopped_speaking touchsilence. sending server'); lastpacket = true;  },1500);
         }
     });
 }

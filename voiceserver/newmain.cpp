@@ -1,6 +1,6 @@
 /* 
  * File:   newmain.cpp
- * Author: andre
+ * Author: andre natal <anatal@gmail.com>
  *
  * Created on December 30, 2013, 8:23 PM
  */
@@ -20,24 +20,22 @@
 #include "OggStream.cpp"
 #include <pocketsphinx/pocketsphinx.h>
 #include <sphinxbase/sphinx_config.h>
-#include "webrtc/common_audio/vad/include/webrtc_vad.h"
+
+// FOR VAD AT SERVER
+/* #include "webrtc/common_audio/vad/include/webrtc_vad.h" */
 
 #define MODELDIR "/usr/local/src/psmodels"
 
-
-
 void *connection_handler(void *);
 void rec_and_send(ps_decoder_t *ps, int sock);
-long long current_timestamp();
+const char *  current_timestamp();
+ps_decoder_t * ps_start();
 
 using namespace std;
 
 long maxsilence = 1500;
 long minvoice = 250;
 
-/*
- * 
- */
 int main(int argc, char** argv) {
     int socket_desc, client_sock, c;
     struct sockaddr_in server, client;
@@ -85,6 +83,7 @@ int main(int argc, char** argv) {
 
 void *connection_handler(void *socket_desc) {
 
+    FILE *file;
 
     int sock = *(int*) socket_desc;
     int read_size;
@@ -96,46 +95,19 @@ void *connection_handler(void *socket_desc) {
     int error;
     OpusDecoder *dec;
     dec = opus_decoder_create(16000, 1, &error);
-    if (error == OPUS_OK && dec != NULL) {
-        // Creation of memory all ok.
-        puts("OPUS LOADED");
+    if (error != OPUS_OK && dec == NULL) {
+        puts("ERROR LOADING OPUS");
     }
 
     // start pocketsphinx 
-    ps_decoder_t *ps;
-    cmd_ln_t *config;
+    ps_decoder_t *ps = ps_start();
 
-    // VAD
-
+    /* // IF RUN VAD AT SERVER
     VadInst* handle = NULL;
-
     if (WebRtcVad_Create(&handle) < 0) puts("Error creating WebRtcVad_Create");
     if (WebRtcVad_Init(handle) < 0) puts("Error initializing WebRtcVad_Init");
     if (WebRtcVad_set_mode(handle, 3) < 0) puts("Error setting mode WebRtcVad_set_mode");
-
-
-
-    config = cmd_ln_init(NULL, ps_args(), TRUE,
-            /*      "-hmm", MODELDIR "/hmm/en_US/hub4wsj_sc_8k",
-                  "-lm", MODELDIR "/lm/en/turtle.DMP",
-                  "-dict", MODELDIR "/lm/en/turtle.dic", */
-            "-hmm", "/var/modelsps/hmm/hub4wsj_sc_8k/",
-            "-lm", "/usr/local/share/pocketsphinx/model/lm/en/turtle.DMP",
-            "-dict", "/usr/local/share/pocketsphinx/model/lm/en/turtle.dic",
-
-            NULL);
-    if (config == NULL) puts("ERROR CREATING PSCONFIG");
-    ps = ps_init(config);
-    if (ps == NULL) puts("ERROR CREATING PSCONFIG");
-
-    FILE *file;
-
-    bool touchedvoice = false;
-    bool touchedsilence = false;
-    bool finishedvoice = false;
-    long samplesvoice = 0;
-    long samplessilence = 0;
-    long long dtantesmili = current_timestamp();
+     */
 
     while ((read_size = recv(sock, client_message, 8192, 0)) > 0) {
 
@@ -144,21 +116,24 @@ void *connection_handler(void *socket_desc) {
 
         if (strcmp(otherString, "?G=") == 0) {
             puts("GRAM RECVD. StartPS");
+            puts(otherString);
+            continue;
         }
 
         if (strcmp(otherString, "STA") == 0) {
-            // this should be moved to START commmand from client
+
             int _res = ps_start_utt(ps, "goforward");
 
             file = fopen("opus.raw", "wb+");
+            continue;
         }
 
         if (strcmp(otherString, "END") == 0) {
             puts("END RECVD");
-            //fclose(file);
+            fclose(file);
 
             rec_and_send(ps, sock);
-
+            continue;
         }
 
         // decode ogg
@@ -217,65 +192,15 @@ void *connection_handler(void *socket_desc) {
                     puts("OPUS_INVALID_PACKET");
                 } else {
 
-                    // puts("OPUS OK");
+                    puts("OPUS OK. Sending PS");
                     // uncomment to write to file
                     //puts("written to file");
-                    //fwrite(pcmsamples, 2, totalpcm, file);
+                    fwrite(pcmsamples, 2, totalpcm, file);
 
-                    long long dtdepois = current_timestamp();
+                    ps_process_raw(ps, pcmsamples, totalpcm, TRUE, FALSE);
 
-                    // VAD
-                    int vad = WebRtcVad_Process(handle, 16000, pcmsamples, totalpcm);
-
-
-                    if (vad == 0) {
-
-                        if (touchedvoice) {
-                            samplessilence += dtdepois - dtantesmili;
-                            if (samplessilence > maxsilence) {
-                                // puts("TOUCH SILENCE");
-                                touchedsilence = true;
-                            }
-                        }
-
-                    } else {
-                        samplesvoice += dtdepois - dtantesmili;
-                        if (samplesvoice > minvoice) {
-                            touchedvoice = true;
-                            //  puts("TOUCH VOICE");
-                        }
-                    }
-                    dtantesmili = dtdepois;
-
-
-                    if (touchedvoice && touchedsilence) {
-                        //finishedvoice = true;
-                        puts("TOUCH VOICE & SIL ");
-                        touchedvoice = false;
-                        touchedsilence = false;
-                        finishedvoice = false;
-                        samplesvoice = 0;
-                        samplessilence = 0;
-                    }
-
-                    if (finishedvoice) {
-                        // stop and get hypothesis
-                        rec_and_send(ps, sock);
-                        //if (ps_start_utt(ps, "goforward") < 0) puts("Error restarting ps_start_utt");
-
-                        touchedvoice = false;
-                        touchedsilence = false;
-                        finishedvoice = false;
-                        samplesvoice = 0;
-                        samplessilence = 0;
-                        dtantesmili = current_timestamp();
-
-
-                    } else {
-                        // speaking...send to pocketsphinx
-                        if (ps_process_raw(ps, pcmsamples, totalpcm, TRUE, FALSE) < 0) puts("Error feeding ps_process_raw");
-                    }
-
+                    // envia partial hypothesis to node.js send to browser 
+                    // write(sock , client_message , strlen(client_message));
 
 
 
@@ -284,15 +209,7 @@ void *connection_handler(void *socket_desc) {
         }
 
 
-
-        // send to pocketsphinx
-
-        // envia partial hypothesis to node.js send to browser 
-        // write(sock , client_message , strlen(client_message));
-
         //  puts("written to file"); fwrite(client_message, 1, 1000, file); 
-
-
 
         memset(client_message, 0, 8192);
 
@@ -313,13 +230,22 @@ void *connection_handler(void *socket_desc) {
     return 0;
 }
 
-long long current_timestamp() {
-    struct timeval te;
-    gettimeofday(&te, NULL); // get current time
-    long long milliseconds = te.tv_sec * 1000LL + te.tv_usec / 1000; // caculate milliseconds
-    //  printf("milliseconds: %lld\n", milliseconds);
-    return milliseconds;
+
+
+const char * current_timestamp() {
+    struct timeval detail_time;
+    gettimeofday(&detail_time, NULL);
+    time_t ltime;
+    struct tm *Tm; 
+    ltime=time(NULL);
+    Tm=localtime(&ltime);
+    
+    char * timestamp;
+    sprintf(timestamp, "%d%d%d%d%d%d \n", Tm->tm_year, Tm->tm_hour, Tm->tm_min, Tm->tm_sec , detail_time.tv_usec / 1000, /* milliseconds */ detail_time.tv_usec); /* microseconds */
+    return timestamp;
 }
+
+
 
 void rec_and_send(ps_decoder_t *ps, int sock) {
     char const *hyp, *uttid;
@@ -331,10 +257,24 @@ void rec_and_send(ps_decoder_t *ps, int sock) {
     hyp = ps_get_hyp(ps, &score, &uttid);
     if (hyp == NULL) {
         puts("Error hyp()");
+        write(sock, "ERR", strlen("ERR"));
     } else {
         printf("Recognized: %s\n", hyp);
+        // envia final hypothesis             
+        write(sock, hyp, strlen(hyp));
     }
 
-    // envia final hypothesis             
-    write(sock, hyp, strlen(hyp));
+
+}
+
+ps_decoder_t * ps_start() {
+    cmd_ln_t *config = cmd_ln_init(NULL, ps_args(), TRUE,
+            "-hmm", "/var/modelsps/hmm/hub4wsj_sc_8k/",
+            "-jsgf", "/home/andre/projetos/workspace/PsContinuous/psApiContinuous/res/raw/gramjsgf.jsgf",
+            "-dict", "/usr/local/share/pocketsphinx/model/lm/en_US/cmu07a.dic",
+            NULL);
+    if (config == NULL) puts("ERROR CREATING PSCONFIG");
+    ps_decoder_t * ps = ps_init(config);
+    if (ps == NULL) puts("ERROR CREATING PSCONFIG");
+    return ps;
 }

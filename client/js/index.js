@@ -5,12 +5,12 @@
     var _speechrtc = null;
     function instancia()
     {
-        _speechrtc = new SpeechRTC("en-US", function () {     console.log("success creating"); } , function (error) {     console.log("error creating:" + error); } );
+        _speechrtc = new SpeechRTC("en-US", function () {     console.log("success creating srtc"); } , function (error) {     console.log("error creating srtc: " + error); } );
     }
 
     function listen()
     {
-        _speechrtc.listen(["ORANGE","BLUE","RED","GREEN"]);
+        _speechrtc.listen();
     }
 
     function stop()
@@ -18,10 +18,14 @@
         _speechrtc.stop();
     }
 
+    function gram(grammar)
+    {
+        _speechrtc.setGrammar(grammar)
+    }
 
     SpeechRTC.onRecognition = function(said)
     {
-        console.log("onRecognition you said" + said);
+        document.getElementById("resultados").innerHTML += "  " + said;
     }
 
     SpeechRTC.onRecognitionError = function(error)

@@ -7,9 +7,14 @@
     <script src="js/index.js"></script>
     <title>SpeechRTC</title>
 </head>
-<body>
-<input type="button" onclick="instancia()" value="Instancia"/><br>
+<body onload="instancia()">
+<input type="button" onclick="gram(['ORANGE','BLUE','RED','GREEN'])" value="SetGram"/><br>
+
 <input type="button" onclick="listen()" value="listen"/><br>
+
+<input type="checkbox" value="Continuous?">Continuous?</input>
+<p>If yes, press stop to finish</p>
 <input type="button" onclick="stop()" value="stop"/><br>
+<div id="resultados" style="width: 100px; height: auto"></div>
 </body>
 </html>

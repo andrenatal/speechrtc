@@ -19,7 +19,7 @@ var bs = BinaryServer({server: server});
 // Wait for new user connections
 bs.on('connection', function(client){
   var randomnumber;
-    var server = new Connection({ port: 8888, host: "localhost"});
+    var server = new Connection({ port: 8888, host: "localhost"} , client);
     console.log('stream');
   client.on('stream', function(stream, meta){
 
@@ -33,24 +33,21 @@ bs.on('connection', function(client){
       }
       else if (meta.name == "fim")
       {
-          var sys = require('sys')
-          var exec = require('child_process').exec;
-          var child;
           console.log('ended: ' + randomnumber);
 
           server.socket.write("END", function() {
               console.log('end sent');
           });
 
-          /*
-          child = exec("php speechserver/convert.php speechserver/audios/" + randomnumber + " en-US", function (error, stdout, stderr) {
-              sys.print('stdout: ' + stdout);
-              // manda pro usuario
-              stream.write(stdout);
-              if (error !== null) {
-                  console.log('exec error: ' + error);
-              }
-          }); */
+      } else if  (meta.name == "grm")
+      {
+          stream.on('data' , function (buffer){
+              console.log('gram buffer' + buffer);
+              server.socket.write("?G=" + buffer, function() {
+                  console.log('data rcvd & sent grammar');
+              });
+          });
+
       }
       else
       {
@@ -64,7 +61,7 @@ bs.on('connection', function(client){
 });
 
 
-function Connection(settings) {
+function Connection(settings, client) {
     events.EventEmitter.call(this);
     var self = this;
 
@@ -80,6 +77,7 @@ function Connection(settings) {
 
     this.socket.on('data', function(chunk) {
         console.log('got data: ' + chunk);
+        client.send(chunk, {name: "res", size: 0});
 
     });
 
