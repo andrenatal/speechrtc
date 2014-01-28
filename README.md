@@ -44,3 +44,11 @@ Speech recognition API built on top of webrtc using pocketsphinx to decode.
 <h3> Running </h3>
 - node server.js
 - ./voiceserver
+
+<h3> Acknowledgments </h3>
+- Steven Lee
+- Shih-Chiang (SC)
+- Robert O'Callahan 
+- Desigan Chinniah
+- All Mozilla Community
+
