@@ -3,8 +3,16 @@ SpeechRTC
 
 Speech recognition API built on top of webrtc using pocketsphinx to decode. 
 
-
 <h2>Client Implementation</h2>
+
+        var _speechrtc = new SpeechRTC("en-US");
+        _speechrtc.gram(["Apple","Oranges","Watermelon"]);
+        _speechrtc.listen();
+        SpeechRTC.onRecognition = function(said)
+        {
+          console.log( " You said "+ said );
+        }
+
 
 <h2>Todo</h2>
 
@@ -14,7 +22,7 @@ Speech recognition API built on top of webrtc using pocketsphinx to decode.
 - Change the setGrammar method to receive an array and wrap jsgf creation <br>
 - Multi-lang support <br>
 - Connect Web Speech API at Firefox (https://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html)
-- Review the installation procedure! <br>
+- Improve the installation procedure! <br>
 
 <h2>Running the server </h2>
 
@@ -27,7 +35,11 @@ Speech recognition API built on top of webrtc using pocketsphinx to decode.
 - g++
 
 <h3> Compiling & installing </h3>
+- Compile and install all dependecies above
 
 <h3> Configuring </h3>
+- Configure and set the paths to models and audio storage on voiceserver 
 
 <h3> Running </h3>
+- node server.js
+- ./voiceserver
