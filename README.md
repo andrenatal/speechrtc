@@ -46,9 +46,9 @@ Speech recognition API built on top of webrtc using pocketsphinx to decode.
 - ./voiceserver
 
 <h3> Acknowledgments </h3>
-- Steven Lee
-- Shih-Chiang (SC)
-- Robert O'Callahan 
-- Desigan Chinniah
+- Steven Lee (Mozilla)
+- Shih-Chiang (SC) (Mozilla)
+- Robert O'Callahan  (Mozilla)
+- Desigan Chinniah (Mozilla)
 - All Mozilla Community
 
