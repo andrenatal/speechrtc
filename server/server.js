@@ -23,6 +23,7 @@ bs.on('connection', function(client){
     console.log('stream');
   client.on('stream', function(stream, meta){
 
+      console.log(meta.name);
       if (meta.name == "start")
       {
           randomnumber=  +new Date();
@@ -33,7 +34,7 @@ bs.on('connection', function(client){
       }
       else if (meta.name == "fim")
       {
-          console.log('ended: ' + randomnumber);
+          console.log('ended recebido!!: ' + randomnumber);
 
           server.socket.write("END", function() {
               console.log('end sent');
@@ -43,7 +44,7 @@ bs.on('connection', function(client){
       {
           stream.on('data' , function (buffer){
               console.log('gram buffer' + buffer);
-              server.socket.write("?G=" + buffer, function() {
+              server.socket.write( buffer, function() {
                   console.log('data rcvd & sent grammar');
               });
           });

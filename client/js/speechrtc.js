@@ -11,6 +11,7 @@ var speechEvents;
 var voicemin = 250;
 var silmax = 1500;
 var lastpacket = false;
+var mediaRecorder;
 
 function SpeechRTC(lang,success,error)
 {
@@ -26,8 +27,6 @@ function SpeechRTC(lang,success,error)
         offline = false;
         if (SpeechRTC.onConnection) SpeechRTC.onConnection();
     });
-
-
     client.on('stream', function(stream, meta){
 
         // Got new data
@@ -43,7 +42,7 @@ function SpeechRTC(lang,success,error)
         });
     });
 
-    var mediaRecorder;
+
 
     if (!utils.validatebrowser()) {
         this.status = "Could not access the microphone.";
@@ -56,6 +55,7 @@ function SpeechRTC(lang,success,error)
                 var options = {};
                 speechEvents = hark(stream, options);
                 declarespeechevents();
+
                 _stream = stream;
                 if (success) success() ;
                 nomike = false;
@@ -76,27 +76,31 @@ function SpeechRTC(lang,success,error)
         }
         wsstream = client.send("0", {name: "start", size: 0});
         mediaRecorder = new MediaRecorder(_stream);
-        mediaRecorder.start(250);
+        mediaRecorder.start(1000);
         mediaRecorder.ondataavailable = function(e) {
-            wsstream = client.send(e.data, {name: "audio", size: e.data.size});
 
-            if (lastpacket)
-            {
-                lastpacket = false;
-                stop();
-            }
-
+                wsstream = client.send(e.data, {name: "audio", size: e.data.size});
+               console.log('bytes de audio enviado pro node');
         };
         mediaRecorder.onerror = function(e){
             if (SpeechRTC.onListenError) SpeechRTC.onRecognitionError(e);
         };
+
+        mediaRecorder.onstop = function()
+        {
+            console.log('mediarecorder stopped');
+            stop();
+        };
+
+        startvadTimeout();
     }
 
     this.stop = function()
     {
+            console.log('stoping mediaRecorder');
 
-            mediaRecorder.stop();
             wsstream = client.send("0", {name: "fim", size: 0});
+            console.log('sending end command');
             wsstream.on('data', function(data){
                 if (SpeechRTC.onRecognition) SpeechRTC.onRecognition(data);
             });
@@ -106,6 +110,7 @@ function SpeechRTC(lang,success,error)
     this.setGrammar = function(grammar)
     {
         console.log("grammar.length:" + grammar.length);
+        console.log(grammar);
         client.send(grammar, {name: "grm", size: grammar.length});
     }
 
@@ -134,23 +139,53 @@ function utils()
 }
 
 
+function startvadTimeout()
+{
+    novadatall = false;
+
+    // termina por tempo
+    setTimeout(function(){
+        if (novadatall) return;
+        console.log('termina vad por tempo.set lastpacket' );
+        touchvoice = false;
+        counting = false;
+        lastpacket = true;
+        novadatall = true;
+        mediaRecorder.stop();
+    },5000);
+}
+
+var novadatall = true;
 function declarespeechevents()
 {
     var touchvoice ,  counting = false;
 
     speechEvents.on('speaking', function() {
+        if (novadatall) return;
+
         if (!counting)
         {
-            setTimeout(function(){ touchvoice = true; console.log('touchvoice' + Date.now()); },250);
+            setTimeout(function(){
+                touchvoice = true;
+                console.log('touchvoice' + Date.now());
+            },250);
             counting = true;
         }
     });
 
     speechEvents.on('stopped_speaking', function() {
+        if (novadatall) return;
         if (counting)
         {
             if (touchvoice)
-                setTimeout(function(){ touchvoice = false;  counting = false; console.log('stopped_speaking touchsilence. sending server'); lastpacket = true;  },1500);
+                setTimeout(function(){
+                    touchvoice = false;
+                    counting = false;
+                    console.log('stopped_speaking touchsilence. set lastpacket');
+                    lastpacket = true;
+                    novadatall = true;
+                    mediaRecorder.stop();
+                },1500);
         }
     });
 }

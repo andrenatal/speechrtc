@@ -20,6 +20,7 @@
 
     function gram(grammar)
     {
+        grammar = "#JSGF V1.0; grammar test; public <simple> =  move right  |  call mary | enter place | travel to new york;" ;
         _speechrtc.setGrammar(grammar)
     }
 

@@ -20,6 +20,9 @@
 #include "OggStream.cpp"
 #include <pocketsphinx/pocketsphinx.h>
 #include <sphinxbase/sphinx_config.h>
+#include <string>
+#include <iostream>
+#include <fstream>
 
 // FOR VAD AT SERVER
 /* #include "webrtc/common_audio/vad/include/webrtc_vad.h" */
@@ -27,8 +30,8 @@
 #define MODELDIR "/usr/local/src/psmodels"
 
 void *connection_handler(void *);
-void rec_and_send(ps_decoder_t *ps, int sock);
-const char *  current_timestamp();
+//void rec_and_send(ps_decoder_t *ps, int sock);
+char * current_timestamp();
 ps_decoder_t * ps_start();
 
 using namespace std;
@@ -109,22 +112,52 @@ void *connection_handler(void *socket_desc) {
     if (WebRtcVad_set_mode(handle, 3) < 0) puts("Error setting mode WebRtcVad_set_mode");
      */
 
+    char * dtdepois;
+    bool ended = true;
     while ((read_size = recv(sock, client_message, 8192, 0)) > 0) {
 
         char otherString[3];
         strncpy(otherString, client_message, 3);
 
-        if (strcmp(otherString, "?G=") == 0) {
-            puts("GRAM RECVD. StartPS");
-            puts(otherString);
+        if (strcmp(otherString, "#JS") == 0) {
+            puts("GRAM RECVD. SWITCH");
+
+            string str1(client_message);
+
+
+            char *dtgram = current_timestamp();
+            std::string grampath = "/var/www/speechrtc/voiceserver/" + std::string(dtgram) + ".jsgf";
+            ofstream file;
+            file.open(grampath.c_str());
+            file << str1;
+            file.close();
+
+
+            jsgf_rule_iter_t *itor;
+            jsgf_t * gram = jsgf_parse_file(grampath.c_str(), NULL);
+            jsgf_rule_t * rule;
+
+            for (itor = jsgf_rule_iter(gram); itor; itor = jsgf_rule_iter_next(itor)) {
+                rule = jsgf_rule_iter_rule(itor);
+                if (jsgf_rule_public(rule))
+                    break;
+            }
+
+            fsg_model_t * m = jsgf_build_fsg(gram, rule, ps_get_logmath(ps), 6.5);
+            fsg_set_t* fsgset = ps_get_fsgset(ps);
+            fsg_set_add(fsgset, "newgrammarname", m);
+            fsg_set_select(fsgset, "newgrammarname");
+            ps_update_fsgset(ps);
             continue;
         }
 
         if (strcmp(otherString, "STA") == 0) {
 
-            int _res = ps_start_utt(ps, "goforward");
-
-            file = fopen("opus.raw", "wb+");
+            //   int _res = ps_start_utt(ps, "goforward");            
+            dtdepois = current_timestamp();
+            puts(dtdepois);
+            file = fopen(dtdepois, "wb+");
+            ended = false;
             continue;
         }
 
@@ -132,7 +165,30 @@ void *connection_handler(void *socket_desc) {
             puts("END RECVD");
             fclose(file);
 
-            rec_and_send(ps, sock);
+            FILE *_file = fopen(dtdepois, "rb");
+            char const *hyp, *uttid;
+            int32 score;
+            int rv = ps_decode_raw(ps, _file, dtdepois, -1);
+            if (rv < 0) puts("error ps_decode_raw");
+            hyp = ps_get_hyp(ps, &score, &uttid);
+
+            if (hyp == NULL) {
+                puts("Error hyp()");
+                write(sock, "ERR", strlen("ERR"));
+            } else {
+                printf("Recognized: %s\n", hyp);
+                // envia final hypothesis             
+                write(sock, hyp, strlen(hyp));
+            }
+
+            fclose(_file);
+            ended = true;
+            continue;
+        }
+
+
+        if (ended) {
+            puts("rcv packet after end. ignoring");
             continue;
         }
 
@@ -192,12 +248,12 @@ void *connection_handler(void *socket_desc) {
                     puts("OPUS_INVALID_PACKET");
                 } else {
 
-                    puts("OPUS OK. Sending PS");
+                    //puts("OPUS OK. Sending PS");
                     // uncomment to write to file
-                    //puts("written to file");
+                    puts("written to file");
                     fwrite(pcmsamples, 2, totalpcm, file);
 
-                    ps_process_raw(ps, pcmsamples, totalpcm, TRUE, FALSE);
+                    //ps_process_raw(ps, pcmsamples, totalpcm, false, false);
 
                     // envia partial hypothesis to node.js send to browser 
                     // write(sock , client_message , strlen(client_message));
@@ -219,33 +275,31 @@ void *connection_handler(void *socket_desc) {
         // EVERYTHING CLEANED AT READ ERROR
         puts("Client disconnected");
         fflush(stdout);
-        ps_free(ps);
+        // ps_free(ps);
 
     } else if (read_size == -1) {
         perror("recv failed");
     }
 
     puts("ending handler");
-    ps_free(ps);
+    //    ps_free(ps);
     return 0;
 }
 
-
-
-const char * current_timestamp() {
+char * current_timestamp() {
     struct timeval detail_time;
     gettimeofday(&detail_time, NULL);
     time_t ltime;
-    struct tm *Tm; 
-    ltime=time(NULL);
-    Tm=localtime(&ltime);
-    
-    char * timestamp;
-    sprintf(timestamp, "%d%d%d%d%d%d \n", Tm->tm_year, Tm->tm_hour, Tm->tm_min, Tm->tm_sec , detail_time.tv_usec / 1000, /* milliseconds */ detail_time.tv_usec); /* microseconds */
+    struct tm *Tm;
+    ltime = time(NULL);
+    Tm = localtime(&ltime);
+
+    char * timestamp = (char*) malloc(10);
+    sprintf(timestamp, "audios/%d%d%d%d", Tm->tm_year, Tm->tm_hour, Tm->tm_min, Tm->tm_sec); // , detail_time.tv_usec
     return timestamp;
 }
 
-
+/*
 
 void rec_and_send(ps_decoder_t *ps, int sock) {
     char const *hyp, *uttid;
@@ -266,12 +320,13 @@ void rec_and_send(ps_decoder_t *ps, int sock) {
 
 
 }
+ */
 
 ps_decoder_t * ps_start() {
     cmd_ln_t *config = cmd_ln_init(NULL, ps_args(), TRUE,
-            "-hmm", "/var/modelsps/hmm/hub4wsj_sc_8k/",
-            "-jsgf", "/home/andre/projetos/workspace/PsContinuous/psApiContinuous/res/raw/gramjsgf.jsgf",
-            "-dict", "/usr/local/share/pocketsphinx/model/lm/en_US/cmu07a.dic",
+            "-hmm", "/var/modelsps/hmm/hub4wsj_sc_8k/", // point to yours
+            "-jsgf", "/var/www/speechrtc/voiceserver/gramjsgf.jsgf", // point to yours
+            "-dict", "/usr/local/share/pocketsphinx/model/lm/en_US/cmu07a.dic", // point to yours
             NULL);
     if (config == NULL) puts("ERROR CREATING PSCONFIG");
     ps_decoder_t * ps = ps_init(config);
