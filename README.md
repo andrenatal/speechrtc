@@ -5,9 +5,9 @@ Speech recognition API built on top of webrtc using pocketsphinx to decode.
 
 <h2>Client Implementation</h2>
 
-        var _speechrtc = new SpeechRTC("en-US");
-        _speechrtc.gram(["Apple","Oranges","Watermelon"]);
-        _speechrtc.listen();
+        var_speechrtc = new SpeechRTC("en-US");
+        speechrtc.gram(["Apple","Oranges","Watermelon"]);
+        speechrtc.listen();
         SpeechRTC.onRecognition = function(said)
         {
           console.log( " You said "+ said );
