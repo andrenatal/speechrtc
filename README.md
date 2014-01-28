@@ -13,9 +13,10 @@ Speech recognition API built on top of webrtc using pocketsphinx to decode.
 - Better demo page <br>
 - Change the setGrammar method to receive an array and wrap jsgf creation <br>
 - Multi-lang support <br>
+- Connect Web Speech API at Firefox (https://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html)
 - Review the installation procedure! <br>
 
-<h2>Compiling & Installing the server </h2>
+<h2>Running the server </h2>
 
 <h2> 1. Pre-requirements </h2>
 - libogg  <br>
@@ -24,3 +25,9 @@ Speech recognition API built on top of webrtc using pocketsphinx to decode.
 - nodejs  <br>
 - libpthread <br>
 - g++
+
+<h2> Compiling & installing </h2>
+
+<h2> Configuring </h2>
+
+<h2> Running </h2>
