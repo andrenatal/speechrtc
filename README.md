@@ -18,7 +18,7 @@ Speech recognition API built on top of webrtc using pocketsphinx to decode.
 
 <h2>Running the server </h2>
 
-<h2> 1. Pre-requirements </h2>
+<h3> 1. Pre-requirements </h3>
 - libogg  <br>
 - libopus  <br>
 - pocketsphinx <br>
@@ -26,8 +26,8 @@ Speech recognition API built on top of webrtc using pocketsphinx to decode.
 - libpthread <br>
 - g++
 
-<h2> Compiling & installing </h2>
+<h3> Compiling & installing </h3>
 
-<h2> Configuring </h2>
+<h3> Configuring </h3>
 
-<h2> Running </h2>
+<h3> Running </h3>
