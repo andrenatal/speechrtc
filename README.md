@@ -13,7 +13,7 @@ Speech recognition API built on top of webrtc using pocketsphinx to decode.
 - Better demo page <br>
 - Change the setGrammar method to receive an array and wrap jsgf creation <br>
 - Multi-lang support <br>
-- Review the installtion procedure! <br>
+- Review the installation procedure! <br>
 
 <h2>Compiling & Installing the server </h2>
 
@@ -23,3 +23,4 @@ Speech recognition API built on top of webrtc using pocketsphinx to decode.
 - pocketsphinx <br>
 - nodejs  <br>
 - libpthread <br>
+- g++
