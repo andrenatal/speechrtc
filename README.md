@@ -36,6 +36,7 @@ Speech recognition API built on top of webrtc using pocketsphinx to decode.
 
 <h3> Compiling & installing </h3>
 - Compile and install all dependecies above
+- Compile voiceserver
 
 <h3> Configuring </h3>
 - Configure and set the paths to models and audio storage on voiceserver 
