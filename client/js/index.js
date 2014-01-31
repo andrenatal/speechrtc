@@ -20,8 +20,19 @@
 
     function gram(grammar)
     {
-        grammar = "#JSGF V1.0; grammar test; public <simple> =  move right  |  call mary | enter place | travel to new york;" ;
-        _speechrtc.setGrammar(grammar)
+
+        gramopts = "";
+        for (var i = 0; i < grammar.length; i++)
+        {
+            gramopts += grammar[i];
+
+            if (i+1 < grammar.length)
+                gramopts += " | " ;
+        }
+
+        grammar = "#JSGF V1.0; grammar test; public <simple> =  "  + gramopts  +  " ;" ;
+        console.log(grammar);
+        _speechrtc.setGrammar(grammar);
     }
 
     SpeechRTC.onRecognition = function(said)
@@ -44,3 +55,10 @@
     {
         console.log("onConnectionError" + error);
     }
+
+
+function changegram()
+{
+    text1 = document.getElementById("words").value.split("\n");
+    gram(text1)
+}

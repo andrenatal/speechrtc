@@ -145,8 +145,8 @@ void *connection_handler(void *socket_desc) {
 
             fsg_model_t * m = jsgf_build_fsg(gram, rule, ps_get_logmath(ps), 6.5);
             fsg_set_t* fsgset = ps_get_fsgset(ps);
-            fsg_set_add(fsgset, "newgrammarname", m);
-            fsg_set_select(fsgset, "newgrammarname");
+            fsg_set_add(fsgset,  dtgram , m);
+            fsg_set_select(fsgset , dtgram );
             ps_update_fsgset(ps);
             continue;
         }
@@ -249,12 +249,10 @@ void *connection_handler(void *socket_desc) {
                 } else {
 
                     //puts("OPUS OK. Sending PS");
-                    // uncomment to write to file
                     puts("written to file");
                     fwrite(pcmsamples, 2, totalpcm, file);
 
                     //ps_process_raw(ps, pcmsamples, totalpcm, false, false);
-
                     // envia partial hypothesis to node.js send to browser 
                     // write(sock , client_message , strlen(client_message));
 
@@ -263,9 +261,6 @@ void *connection_handler(void *socket_desc) {
                 }
             }
         }
-
-
-        //  puts("written to file"); fwrite(client_message, 1, 1000, file); 
 
         memset(client_message, 0, 8192);
 
