@@ -54,6 +54,6 @@ Speech recognition API built on top of webrtc using pocketsphinx to decode.
 - All Mozilla Community
 
 <h3> Author </h3>
-Andre Natal
+Andre Natal<br>
 anatal@gmail.com
 
