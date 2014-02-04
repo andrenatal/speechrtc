@@ -51,6 +51,7 @@ Speech recognition API built on top of webrtc using pocketsphinx to decode.
 - Shih-Chiang (SC) (Mozilla)
 - Robert O'Callahan  (Mozilla)
 - Desigan Chinniah (Mozilla)
+- Randell Jesup (Mozilla)
 - All Mozilla Community
 
 <h3> Author </h3>
