@@ -3,6 +3,10 @@ SpeechRTC
 
 Speech recognition API built on top of webrtc using pocketsphinx to decode. 
 
+Demonstration: 
+http://www.youtube.com/watch?v=pnCRH-Iznrc
+http://www.youtube.com/watch?v=cjjFvyH3kdc
+
 <h2>Client Implementation</h2>
 
         var speechrtc = new SpeechRTC("en-US");
